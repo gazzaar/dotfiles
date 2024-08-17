@@ -175,7 +175,7 @@ run = 'layout floating'  # The callback itself
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zathura'
-run = "move-node-to-workspace Z"
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'cc.ffitch.shottr'
