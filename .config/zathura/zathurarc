@@ -1,0 +1,7 @@
+set selection-clipboard clipboard
+map i recolor
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+map r reload
+set page-padding 1
+map q quit

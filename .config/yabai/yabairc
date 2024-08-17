@@ -1,0 +1,65 @@
+#!/usr/bin/env sh
+# default layout (can be bsp, stack or float)
+yabai -m config layout bsp
+# New window spawns to the right if vertical split, or bottom if horizontal split
+yabai -m config window_placement second_child
+# padding 
+#
+# Function to set padding
+set_padding() {
+    if [ "$1" = "external" ]; then
+        yabai -m config top_padding 10
+        yabai -m config bottom_padding 10
+        yabai -m config left_padding 10
+        yabai -m config right_padding 10
+    else
+        yabai -m config top_padding 0
+        yabai -m config bottom_padding 0
+        yabai -m config left_padding 0
+        yabai -m config right_padding 0
+    fi
+}
+# Initial padding setup
+monitor_status=$(~/.yabai_scripts/check_monitor.sh)
+set_padding "$monitor_status"
+# Watch for changes in monitor configuration
+yabai -m signal --add event=display_added action="~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config top_padding {}; ~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config bottom_padding {}; ~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config left_padding {}; ~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config right_padding {}"
+yabai -m signal --add event=display_removed action="~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config top_padding {}; ~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config bottom_padding {}; ~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config left_padding {}; ~/.yabai_scripts/check_monitor.sh | xargs -I {} ~/.config/yabai -m config right_padding {}"
+
+
+
+yabai -m config window_gap 10
+# center mouse on window with focus
+yabai -m config mouse_follows_focus on
+
+#yabai -m config focus_follows_mouse autofocus
+#yabai -m config focus_follows_mouse autoraise
+# modifier for clicking and dragging with mouse
+yabai -m config mouse_modifier alt
+# set modifier + left-click drag to move window
+yabai -m config mouse_action1 move
+# set modifier + right-click drag to resize window
+yabai -m config mouse_action2 resize
+
+
+# when window is dropped in center of another window, swap them (on edges it will split it)
+yabai -m mouse_drop_action swap
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Notes$" manage=off
+yabai -m rule --add app="^AppCleaner$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
+yabai -m rule --add app="^BetterZip$" manage=off
+# yabai -m rule --add app="^IINA$" manage=off
+yabai -m rule --add app="^Clock$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Telegram$" manage=off
+yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^RapidSnap$" manage=off
+yabai -m rule --add app="^WhatsApp$" manage=off
+
+############### My configs ####################
+
+yabai -m config external_bar all:00:27
