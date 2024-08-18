@@ -149,16 +149,13 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # callback
 [[on-window-detected]]
-if.app-id = 'org.alacritty'
+if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace T' # mnemonics T - Terminal
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
 
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = "move-node-to-workspace N"
 
 
 [[on-window-detected]]
