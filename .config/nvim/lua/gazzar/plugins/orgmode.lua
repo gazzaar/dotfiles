@@ -5,8 +5,8 @@ return {
 	config = function()
 		-- Setup orgmode
 		require("orgmode").setup({
-			org_agenda_files = "~/orgfiles/**/*",
-			org_default_notes_file = "~/orgfiles/refile.org",
+			org_agenda_files = "~/.nb/klog/area/*",
+			org_default_notes_file = "~/.nb/klog/area/log.org",
 		})
 
 		-- NOTE: If you are using nvim-treesitter with `ensure_installed = "all"` option
