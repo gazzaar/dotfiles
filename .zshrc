@@ -77,6 +77,7 @@ alias minecraft="java -jar Tlauncher.jar"
 alias commit="git commit -m"
 alias tasks="nb tasks"
 alias todo="nb add todo"
+alias klog="cd .nb/klog/"
 
 
 
