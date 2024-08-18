@@ -9,12 +9,10 @@ return {
 	},
 	config = function()
 		require("org-roam").setup({
-			directory = "~/.nb/klog/**/*",
+			directory = "~/.nb/klog/resources/",
 			-- optional
 			org_files = {
-				-- "~/another_org_dir",
-				-- "~/some/folder/*.org",
-				-- "~/a/single/org_file.org",
+				"~/.nb/klog/**/*.org",
 			},
 		})
 	end,
