@@ -18,7 +18,7 @@ extract = [
 ]
 
 zathura = [
-    { run = 'zathura "$@"', desc = "Open with Zathura", for = "unix" },
+    { run = 'zathura "$@" &', desc = "Open with Zathura", for = "unix" },
 ]
 
 [open]
