@@ -3,7 +3,7 @@ return {
 	config = function()
 		require("notify").setup({
 			stages = "slide",
-			timeout = 5000,
+			timeout = 2000,
 			background_colour = "#000000",
 			enabled = false,
 		})
