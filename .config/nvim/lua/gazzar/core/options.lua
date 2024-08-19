@@ -14,6 +14,10 @@ opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
 opt.wrap = false -- disable line wrapping
+-- to see if the hyperlinks works or not
+--
+opt.conceallevel = 2
+opt.concealcursor = "nc"
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching

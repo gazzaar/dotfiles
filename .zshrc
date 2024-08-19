@@ -124,3 +124,10 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_AUTO_UPDATE=true
+
+# Following line was automatically added by arttime installer
+export MANPATH=/Users/fathysameh/.local/share/man:$MANPATH
+
+# Following line was automatically added by arttime installer
+export PATH=/Users/fathysameh/.local/bin:$PATH
+
