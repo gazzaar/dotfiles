@@ -103,6 +103,7 @@ alias cd="z"
 # ---- Eza (better ls) -----
 
 alias ls="eza --color=always --long --git --no-filesize --no-time --no-user --no-permissions"
+alias ll="eza -l --no-permissions"
 
 # thefuck alias 
 eval $(thefuck --alias fk)
