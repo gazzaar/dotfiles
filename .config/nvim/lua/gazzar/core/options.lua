@@ -6,6 +6,7 @@ local opt = vim.opt -- for conciseness
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
 
+opt.colorcolumn = "80" -- Replace 80 with the column number you want to highlight
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width

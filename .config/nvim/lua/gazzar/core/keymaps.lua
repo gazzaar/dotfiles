@@ -1,5 +1,5 @@
 -- set leader key to space
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
@@ -15,6 +15,8 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- delete single character without copying into register
 -- keymap.set("n", "x", '"_x')
 
+-- for terminal
+keymap.set("n", "<leader>tt", ":term<CR>", { desc = "open terminal in nvim" })
 -- In init.lua
 vim.api.nvim_set_keymap("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>bp", ":bprev<CR>", { noremap = true, silent = true })
@@ -35,4 +37,4 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
-vim.api.nvim_set_keymap("n", "<Space>", ":", { noremap = true })
+vim.api.nvim_set_keymap("n", ",", ":", { noremap = true })

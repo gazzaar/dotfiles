@@ -79,7 +79,7 @@ alias tasks="nb tasks"
 alias todo="nb add todo"
 alias klog="cd .nb/klog/"
 alias work="arttime"
-
+alias vi="nvim"
 
 
 export NVM_DIR="$HOME/.nvm"
