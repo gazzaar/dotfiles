@@ -19,6 +19,17 @@ return {
 						},
 					},
 				},
+				l = {
+					description = "Quick Links",
+					template = "- [[%x][%?]]\n  %u\n",
+					target = "~/.nb/klog/resources/links.org",
+					properties = {
+						empty_lines = {
+							before = 1,
+							after = 1,
+						},
+					},
+				},
 			},
 		})
 	end,

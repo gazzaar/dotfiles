@@ -17,6 +17,13 @@ opt.autoindent = true -- copy indent from current line when starting new one
 opt.wrap = false -- disable line wrapping
 -- to see if the hyperlinks works or not
 --
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "json",
+	callback = function()
+		vim.opt_local.conceallevel = 0
+	end,
+})
+
 opt.conceallevel = 2
 opt.concealcursor = "nc"
 
