@@ -78,8 +78,9 @@ alias commit="git commit -m"
 alias tasks="nb tasks"
 alias todo="nb add todo"
 alias klog="cd .nb/klog/"
-alias work="arttime"
+alias work="$HOME/.local/bin/work"
 alias vi="nvim"
+alias org="nb open area/log.org"
 
 
 export NVM_DIR="$HOME/.nvm"
