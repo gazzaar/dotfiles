@@ -16,19 +16,17 @@ export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/dotfiles/"
 export EDITOR=nvim
 export VISUAL=nvim
+export KLOG="$HOME/.nb/klog/"
 export NB_EDITOR='nvim'
 export BAT_THEME="gruvbox-dark"
-
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color=fg:-1,fg+:#fbf1c7,bg:-1,bg+:#262626
-  --color=hl:#83a598,hl+:#458588,info:#afaf87,marker:#98971a
-  --color=prompt:#b8bb26,spinner:#b16286,pointer:#d3869b,header:#87afaf
-  --color=border:#d65d0e,preview-fg:#ebdbb2,preview-border:#689d6a,preview-scrollbar:#689d6a
-  --color=label:#aeaeae,query:#d9d9d9
-  --preview-window="border-rounded" --prompt="> " --marker=">" --pointer="◆"
-  --separator="─" --scrollbar="│" --layout="reverse-list"'
-
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/opt/homebrew/bin:$PATH"
+export TERMINAL=Wezterm
+export TERM='xterm-256color'
+export HOMEBREW_NO_AUTO_UPDATE=true
+export HOMEBREW_NO_AUTO_UPDATE=true
 
 # DEFAULT_USER="gazzaar"
 # prompt_context(){}
@@ -51,48 +49,40 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-#
-#alises to arm and intel
+# --------------------- Alises --------------------- #
 alias c="clear"
 alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
 alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
-alias sleepnow="pmset sleepnow"
-alias q="osascript -e"
-alias minecraft="java -jar Tlauncher.jar"
 alias commit="git commit -m"
-alias tasks="nb tasks"
-alias todo="nb add todo"
-alias klog="cd .nb/klog/"
+alias klog="cd $KLOG"
 alias work="$HOME/.local/bin/work"
 alias v="nvim"
+alias x="tmux"
 alias org="nb open area/log.org"
 alias gs="git status"
 alias dot="cd $DOTFILES"
+alias cd="z"
+alias ls="eza --color=always --long --git --no-filesize --no-time --no-user --no-permissions"
+alias ll="eza -l --no-permissions"
+alias e="exit"
+alias lg="lazygit"
+# --------------------- fzf --------------------- #
 
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:-1,fg+:#fbf1c7,bg:-1,bg+:#262626
+  --color=hl:#83a598,hl+:#458588,info:#afaf87,marker:#98971a
+  --color=prompt:#b8bb26,spinner:#b16286,pointer:#d3869b,header:#87afaf
+  --color=border:#d65d0e,preview-fg:#ebdbb2,preview-border:#689d6a,preview-scrollbar:#689d6a
+  --color=label:#aeaeae,query:#d9d9d9
+  --preview-window="border-rounded" --prompt="> " --marker=">" --pointer="◆"
+  --separator="─" --scrollbar="│" --layout="reverse-list"'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="/opt/homebrew/bin:$PATH"
-export TERMINAL=Wezterm
-export TERM='xterm-256color'
-
-# ---- FZF -----
-
-# Set up fzf key bindings and fuzzy completion
-#eval "$(fzf --zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
-alias cd="z"
-
-# ---- Eza (better ls) -----
-
-alias ls="eza --color=always --long --git --no-filesize --no-time --no-user --no-permissions"
-alias ll="eza -l --no-permissions"
 
 # thefuck alias 
 eval $(thefuck --alias fk)
@@ -113,7 +103,3 @@ setopt hist_verify
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
-export HOMEBREW_NO_AUTO_UPDATE=true
-export HOMEBREW_NO_AUTO_UPDATE=true
-
-
