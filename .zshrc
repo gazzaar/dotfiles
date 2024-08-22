@@ -10,25 +10,14 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+set -o vi
+bindkey -M viins 'jk' vi-cmd-mode
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR='nvim'
+export DOTFILES="$HOME/dotfiles/"
+export EDITOR=nvim
+export VISUAL=nvim
 export NB_EDITOR='nvim'
 export BAT_THEME="gruvbox-dark"
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-
-
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-#   --color=fg:#d0d0d0,fg+:#fbf1c7,bg:#282828,bg+:#262626
-#   --color=hl:#83a598,hl+:#458588,info:#afaf87,marker:#98971a
-#   --color=prompt:#b8bb26,spinner:#b16286,pointer:#d3869b,header:#87afaf
-#   --color=border:#d65d0e,preview-fg:#ebdbb2,preview-border:#689d6a,preview-scrollbar:#689d6a
-#   --color=label:#aeaeae,query:#d9d9d9
-#   --preview-window="border-rounded" --prompt="> " --marker=">" --pointer="◆"
-#   --separator="─" --scrollbar="│" --layout="reverse-list"'
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:-1,fg+:#fbf1c7,bg:-1,bg+:#262626
@@ -41,16 +30,13 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 
 
-# 
-
-
-DEFAULT_USER="fathysameh"
-prompt_context(){}
-
-# Set the prompt to display only the current directory name
-PS1='%1~ %# '
-
-ZSH_THEME="robbyrussell"
+# DEFAULT_USER="gazzaar"
+# prompt_context(){}
+#
+# # Set the prompt to display only the current directory name
+# PS1='%1~ %# '
+#
+# ZSH_THEME="robbyrussell"
 
 # Sketchybar interactivity overloads
 function brew() {
@@ -79,16 +65,18 @@ alias tasks="nb tasks"
 alias todo="nb add todo"
 alias klog="cd .nb/klog/"
 alias work="$HOME/.local/bin/work"
-alias vi="nvim"
+alias v="nvim"
 alias org="nb open area/log.org"
+alias gs="git status"
+alias dot="cd $DOTFILES"
 
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/bin:$PATH"
-export TERMINAL=alacritty
-#export TERM=alacritty
+export TERMINAL=Wezterm
+export TERM='xterm-256color'
 
 # ---- FZF -----
 
