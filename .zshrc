@@ -27,6 +27,7 @@ export TERMINAL=Wezterm
 export TERM='xterm-256color'
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_AUTO_UPDATE=true
+export LANG=en_US.UTF-8
 
 # DEFAULT_USER="gazzaar"
 # prompt_context(){}
@@ -57,7 +58,7 @@ alias commit="git commit -m"
 alias klog="cd $KLOG"
 alias work="$HOME/.local/bin/work"
 alias v="nvim"
-alias x="tmux"
+alias t="tmux"
 alias org="nb open area/log.org"
 alias gs="git status"
 alias dot="cd $DOTFILES"
@@ -66,6 +67,7 @@ alias ls="eza --color=always --long --git --no-filesize --no-time --no-user --no
 alias ll="eza -l --no-permissions"
 alias e="exit"
 alias lg="lazygit"
+alias y="yazi"
 # --------------------- fzf --------------------- #
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
