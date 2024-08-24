@@ -54,3 +54,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- file encoding
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.fileencodings = "utf-8"

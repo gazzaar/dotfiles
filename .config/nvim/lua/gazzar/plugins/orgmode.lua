@@ -30,6 +30,17 @@ return {
 						},
 					},
 				},
+				-- m = {
+				-- 	description = "Multiple Todos",
+				-- 	template = "* TODO Math: %?\n  %t\n* TODO CS: %?\n  %t\n* TODO Web: %?\n  %t\n* TODO Quran: %?\n  %t\n* TODO Misc: %?\n  %t\n",
+				-- 	target = "~/.nb/klog/area/log.org",
+				-- 	properties = {
+				-- 		empty_lines = {
+				-- 			before = 1,
+				-- 			after = 1,
+				-- 		},
+				-- 	},
+				-- },
 			},
 		})
 	end,

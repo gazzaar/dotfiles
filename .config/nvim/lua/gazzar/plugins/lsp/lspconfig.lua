@@ -159,6 +159,23 @@ return {
 					filetypes = { "html", "css", "scss", "svelte" },
 				})
 			end,
+			["pyright"] = function()
+				-- configure Python LSP server
+				lspconfig["pyright"].setup({
+					capabilities = capabilities,
+					on_attach = function(client, bufnr)
+						-- Optional: Additional setup for Python LSP
+					end,
+					settings = {
+						python = {
+							analysis = {
+								autoSearchPaths = true,
+								useLibraryCodeForTypes = true,
+							},
+						},
+					},
+				})
+			end,
 		})
 	end,
 }

@@ -4,18 +4,18 @@ return {
 	config = function()
 		require("noice").setup({
 			-- for clean pop up
-			-- views = {
-			-- 	cmdline_popup = {
-			-- 		border = {
-			-- 			style = "none",
-			-- 			padding = { 1, 1 },
-			-- 		},
-			-- 		filter_options = {},
-			-- 		win_options = {
-			-- 			winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
-			-- 		},
-			-- 	},
-			-- },
+			views = {
+				cmdline_popup = {
+					border = {
+						style = "none",
+						padding = { 1, 1 },
+					},
+					filter_options = {},
+					win_options = {
+						winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+					},
+				},
+			},
 			presets = {
 				bottom_search = true, -- use a classic bottom cmdline for search
 				command_palette = true, -- position the cmdline and popupmenu together
