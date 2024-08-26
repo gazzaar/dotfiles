@@ -7,7 +7,7 @@ local config = wezterm.config_builder()
 config.color_scheme = "Gruvbox Dark (Gogh)"
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 -- -- Fonts
-config.font_size = 20
+config.font_size = 22
 config.font = wezterm.font({ family = "Fira Code" })
 config.bold_brightens_ansi_colors = true
 config.font_rules = {
