@@ -48,6 +48,7 @@ return {
 				"black", -- python formatter
 				"pylint", -- python linter
 				"eslint_d", -- js linter
+				"node-debug2-adapter",
 			},
 		})
 	end,
