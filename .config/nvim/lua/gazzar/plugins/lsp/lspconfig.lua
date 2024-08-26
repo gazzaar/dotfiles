@@ -97,21 +97,6 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["svelte"] = function()
-				-- configure svelte server
-				lspconfig["svelte"].setup({
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						vim.api.nvim_create_autocmd("BufWritePost", {
-							pattern = { "*.js", "*.ts" },
-							callback = function(ctx)
-								-- Here use ctx.match instead of ctx.file
-								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-							end,
-						})
-					end,
-				})
-			end,
 			["graphql"] = function()
 				-- configure graphql language server
 				lspconfig["graphql"].setup({
@@ -131,7 +116,6 @@ return {
 						"sass",
 						"scss",
 						"less",
-						"svelte",
 					},
 				})
 			end,
@@ -156,25 +140,15 @@ return {
 				-- configure tailwindcss server
 				lspconfig["tailwindcss"].setup({
 					capabilities = capabilities,
-					filetypes = { "html", "css", "scss", "svelte" },
+					filetypes = { "html", "css", "scss" },
 				})
 			end,
 			["pyright"] = function()
 				-- configure Python LSP server
-				lspconfig["pyright"].setup({
-					capabilities = capabilities,
-					on_attach = function(client, bufnr)
-						-- Optional: Additional setup for Python LSP
-					end,
-					settings = {
-						python = {
-							analysis = {
-								autoSearchPaths = true,
-								useLibraryCodeForTypes = true,
-							},
-						},
-					},
-				})
+				lspconfig["pyright"].setup({})
+			end,
+			["clangd"] = function()
+				lspconfig["clangd"].setup({})
 			end,
 		})
 	end,
