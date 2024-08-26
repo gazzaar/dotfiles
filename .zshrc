@@ -57,10 +57,11 @@ alias gs="git status"
 alias dot="cd $DOTFILES"
 alias cd="z"
 alias ls="eza --color=always --long --git --no-filesize --no-time --no-user --no-permissions"
-alias ll="eza -l --no-permissions"
+alias ll="eza -l "
 alias e="exit"
 alias lg="lazygit"
 alias y="yazi"
+alias logs="nb open area/log.org"
 # --------------------- fzf --------------------- #
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
