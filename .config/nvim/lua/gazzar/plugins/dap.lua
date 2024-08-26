@@ -10,12 +10,10 @@ return {
 		config = function()
 			local ui = require("dapui")
 			local dap = require("dap")
+
 			ui.setup()
 
-			require("nvim-dap-virtual-text").setup({
-				-- This just tries to mitigate the chance that I leak tokens here. Probably won't stop it from happening...
-				display_callback = function(variable) end,
-			})
+			require("nvim-dap-virtual-text").setup({})
 
 			dap.adapters.node2 = {
 				type = "executable",
@@ -49,9 +47,9 @@ return {
 			vim.keymap.set("n", "<space>gb", dap.run_to_cursor)
 
 			-- Eval var under cursor
-			-- vim.keymap.set("n", "<space>?", function()
-			-- 	require("dapui").eval(nil, { enter = true })
-			-- end)
+			vim.keymap.set("n", "<space>?", function()
+				require("dapui").eval(nil, { enter = true })
+			end)
 
 			vim.keymap.set("n", "<F1>", dap.continue)
 			vim.keymap.set("n", "<F2>", dap.step_into)
