@@ -8,7 +8,7 @@ config.color_scheme = "Gruvbox Dark (Gogh)"
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 -- -- Fonts
 config.font_size = 21
-config.font = wezterm.font({ family = "Fira Code" })
+config.font = wezterm.font({ family = "FiraCode Nerd Font" })
 config.bold_brightens_ansi_colors = true
 config.font_rules = {
 	{
@@ -27,7 +27,6 @@ config.font_rules = {
 		font = wezterm.font({ family = "Maple Mono", style = "Italic" }),
 	},
 }
--- config.font_size = 21
 config.default_cursor_style = "SteadyBar"
 config.enable_tab_bar = false
 config.window_padding = {
