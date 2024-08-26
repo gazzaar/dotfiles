@@ -3,6 +3,7 @@ return {
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text",
 			"nvim-neotest/nvim-nio",
 			"williamboman/mason.nvim",
 		},
@@ -10,6 +11,12 @@ return {
 			local ui = require("dapui")
 			local dap = require("dap")
 			ui.setup()
+
+			require("nvim-dap-virtual-text").setup({
+				-- This just tries to mitigate the chance that I leak tokens here. Probably won't stop it from happening...
+				display_callback = function(variable) end,
+			})
+
 			dap.adapters.node2 = {
 				type = "executable",
 				command = "node",
