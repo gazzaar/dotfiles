@@ -173,7 +173,7 @@ if.app-id = 'com.apple.AppStore'
 run = 'layout floating'  # The callback itself
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'zathura'
+if.app-id = "net.sourceforge.skim-app.skim"
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
