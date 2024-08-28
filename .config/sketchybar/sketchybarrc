@@ -8,7 +8,6 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
-
 ##### Bar Appearance #####
 # Configuring the general appearance of the bar.
 # These are only some of the options available. For all options see:
@@ -16,56 +15,47 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-
-sketchybar --bar height=27        \
-                 blur_radius=30   \
-                 position=bottom\
-                 sticky=on       \
-                 margin=10\
-                 padding_left=0 \
-                 padding_right=0\
-                 corner_radius=5\
-                 color=$BAR_COLOR\
-
-
+sketchybar --bar height=27 \
+  blur_radius=30 \
+  position=bottom sticky=on \
+  margin=10 padding_left=0 \
+  padding_right=0 corner_radius=5 color=$BAR_COLOR
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
 # For a full list of all available item properties see:
 # https://felixkratz.github.io/SketchyBar/config/items
 
-sketchybar --default icon.font="SF Pro:Semibold:15.0"  \
-                     icon.color=$WHITE                 \
-                     label.font="SF Pro:Semibold:15.0" \
-                     label.color=$WHITE                \
-                     background.color=$ITEM_BG_COLOR       \
-                     background.corner_radius=5            \
-                     background.height=24                  \
-                     padding_left=5                        \
-                     padding_right=5                       \
-                     label.padding_left=4                  \
-                     label.padding_right=10                \
-                     icon.padding_left=10                  \
-                     icon.padding_right=4
-
+sketchybar --default icon.font="SF Pro:Semibold:15.0" \
+  icon.color=$WHITE \
+  label.font="SF Pro:Semibold:15.0" \
+  label.color=$WHITE \
+  background.color=$ITEM_BG_COLOR \
+  background.corner_radius=5 \
+  background.height=24 \
+  padding_left=5 \
+  padding_right=5 \
+  label.padding_left=4 \
+  label.padding_right=10 \
+  icon.padding_left=10 \
+  icon.padding_right=4
 
 sketchybar --add event aerospace_workspace_change
 
 for sid in $(aerospace list-workspaces --all); do
-    sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
-        --set space.$sid \
-        background.color=0x44ffffff \
-        background.corner_radius=5 \
-        background.height=20 \
-        background.drawing=off\
-        label="$sid" \
-        label.padding_left=10  \
-        label.padding_right=10\
-        icon.padding_left=0\
-        icon.padding_right=0\
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+  sketchybar --add item space.$sid left \
+    --subscribe space.$sid aerospace_workspace_change \
+    --set space.$sid \
+    background.color=0xff414868 \
+    background.corner_radius=5 \
+    background.height=20 \
+    background.drawing=off label="$sid" \
+    label.padding_left=10 \
+    label.padding_right=10 \
+    icon.padding_left=0 \
+    icon.padding_right=0 \
+    click_script="aerospace workspace $sid" \
+    script="$CONFIG_DIR/plugins/aerospace.sh $sid"
 done
 
 # -- Left Side Items --
@@ -82,4 +72,4 @@ source $ITEM_DIR/battery.sh
 source $ITEM_DIR/cpu.sh
 
 sketchybar --update
-sketchybar --hotload  true
+sketchybar --hotload true
