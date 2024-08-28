@@ -51,6 +51,8 @@ alias commit="git commit -m"
 alias klog="cd $KLOG"
 alias work="$HOME/.local/bin/work"
 alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 alias t="tmux"
 alias org="nb open area/ideas.org"
 alias gs="git status"
@@ -96,7 +98,7 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-autoload -U promptinit; promptinit
-prompt pure
-
+# fpath+=("$(brew --prefix)/share/zsh/site-functions")
+# autoload -U promptinit; promptinit
+# prompt pure
+eval "$(starship init zsh)"
