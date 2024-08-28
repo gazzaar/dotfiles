@@ -7,7 +7,7 @@ return {
       --
       -- All of these are just the defaults
       --
-      enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+      enabled = false, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
       execution_message = {
         enabled = true,
         message = function() -- message to print on save

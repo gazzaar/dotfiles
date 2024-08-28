@@ -6,3 +6,8 @@ vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 -- increment/decrement numbers
 vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+-- Map 'jj' to escape insert mode let's see it again
+vim.api.nvim_set_keymap("i", "jj", "<Esc>", { noremap = true, silent = true })
+
+-- Map 'jk' to save the file and exit insert mode
+vim.api.nvim_set_keymap("i", "jk", "<Esc>:w<CR>", { noremap = true, silent = true })
