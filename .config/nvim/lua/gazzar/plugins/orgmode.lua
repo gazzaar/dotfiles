@@ -7,12 +7,13 @@ return {
 		require("orgmode").setup({
 			org_agenda_files = "~/.nb/klog/**/*",
 			org_default_notes_file = "~/.nb/klog/area/log.org",
-			org_todo_keywords = { "TODO(t)", "|", "DONE", "CANCELED", "FAILED" },
+			org_todo_keywords = { "TODO(t)", "|", "DONE", "CANCELED", "FAILED", "SIMIDONE" },
 			org_todo_keyword_faces = {
 				TODO = ":foreground " .. gruvbox.palette.neutral_orange .. " :weight bold",
 				DONE = ":foreground " .. gruvbox.palette.neutral_blue .. " :weight bold",
 				CANCELED = ":foreground " .. gruvbox.palette.neutral_purple .. " :weight bold",
 				FAILED = ":foreground " .. gruvbox.palette.neutral_red .. " :weight bold",
+				SIMIDONE = ":foreground " .. gruvbox.palette.neutral_green .. " :weight bold",
 			},
 			org_hide_emphasis_markers = true,
 			org_startup_indented = true,
