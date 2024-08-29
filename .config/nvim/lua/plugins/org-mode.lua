@@ -16,8 +16,8 @@ return {
         SIMIDONE = ":foreground " .. colors.green .. " :weight bold",
       },
       org_hide_emphasis_markers = true,
-      org_startup_indented = true,
-      org_adapt_indentation = true,
+      org_startup_indented = false,
+      org_adapt_indentation = false,
 
       org_capture_templates = {
         i = {

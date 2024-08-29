@@ -1,6 +1,6 @@
 {
   "extras": [
-
+    "lazyvim.plugins.extras.editor.inc-rename"
   ],
   "news": {
     "NEWS.md": "6520"
