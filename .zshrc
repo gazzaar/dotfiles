@@ -11,7 +11,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export KLOG="$HOME/.nb/klog/"
 export NB_EDITOR='nvim'
-export BAT_THEME="gruvbox-dark"
+export BAT_THEME="Catppuccin Mocha"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
