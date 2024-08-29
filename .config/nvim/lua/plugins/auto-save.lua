@@ -7,7 +7,7 @@ return {
       --
       -- All of these are just the defaults
       --
-      enabled = false, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+      enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
       execution_message = {
         enabled = true,
         message = function() -- message to print on save
@@ -33,7 +33,7 @@ return {
       noautocmd = false,
       lockmarks = false, -- lock marks when saving, see `:h lockmarks` for more details
       -- delay after which a pending save is executed (default 1000)
-      debounce_delay = 1000,
+      debounce_delay = 2000,
       -- log debug messages to 'auto-save.log' file in neovim cache directory, set to `true` to enable
       debug = false,
     },
