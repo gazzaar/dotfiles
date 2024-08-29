@@ -53,6 +53,8 @@ alias work="$HOME/.local/bin/work"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+alias son="tmux set-option -g status on"
+alias soff="tmux set-option -g status off"
 alias t="tmux"
 alias org="nb open area/ideas.org"
 alias gs="git status"
@@ -66,15 +68,23 @@ alias y="yazi"
 alias logs="nb open area/log.org"
 # --------------------- fzf --------------------- #
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color=fg:-1,fg+:#fbf1c7,bg:-1,bg+:#262626
-  --color=hl:#83a598,hl+:#458588,info:#afaf87,marker:#98971a
-  --color=prompt:#b8bb26,spinner:#b16286,pointer:#d3869b,header:#87afaf
-  --color=border:#d65d0e,preview-fg:#ebdbb2,preview-border:#689d6a,preview-scrollbar:#689d6a
-  --color=label:#aeaeae,query:#d9d9d9
-  --preview-window="border-rounded" --prompt="> " --marker=">" --pointer="◆"
-  --separator="─" --scrollbar="│" --layout="reverse-list"'
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+#   --color=fg:-1,fg+:#fbf1c7,bg:-1,bg+:#262626
+#   --color=hl:#83a598,hl+:#458588,info:#afaf87,marker:#98971a
+#   --color=prompt:#b8bb26,spinner:#b16286,pointer:#d3869b,header:#87afaf
+#   --color=border:#d65d0e,preview-fg:#ebdbb2,preview-border:#689d6a,preview-scrollbar:#689d6a
+#   --color=label:#aeaeae,query:#d9d9d9
+#   --preview-window="border-rounded" --prompt="> " --marker=">" --pointer="◆"
+#   --separator="─" --scrollbar="│" --layout="reverse-list"'
 
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:#c0caf5,fg+:#ffffff,bg:#1a1b26,bg+:#292e42
+  --color=hl:#7aa2f7,hl+:#7dcfff,info:#7aa2f7,marker:#9ece6a
+  --color=prompt:#bb9af7,spinner:#bb9af7,pointer:#f7768e,header:#7aa2f7
+  --color=border:#7aa2f7,preview-fg:#c0caf5,preview-border:#7aa2f7,preview-scrollbar:#7aa2f7
+  --color=label:#7a7a7a,query:#ffffff
+  --preview-window="border-rounded" --prompt="❯ " --marker="❯" --pointer="◆"
+  --separator="─" --scrollbar="│" --layout="reverse-list"'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
