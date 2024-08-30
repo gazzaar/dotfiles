@@ -7,6 +7,13 @@ return {
     require("orgmode").setup({
       org_agenda_files = "~/.nb/klog/**/*",
       org_default_notes_file = "~/.nb/klog/area/log.org",
+      mappings = {
+        org = {
+          org_todo = "cot",
+          org_todo_prev = "coT",
+          org_toggle_checkbox = "<C-c>",
+        },
+      },
       org_todo_keywords = { "TODO(t)", "|", "DONE", "CANCELED", "FAILED", "SIMIDONE" },
       org_todo_keyword_faces = {
         TODO = ":foreground " .. colors.orange .. " :weight bold",
