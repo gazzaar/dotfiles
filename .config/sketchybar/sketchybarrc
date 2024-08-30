@@ -18,8 +18,8 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 sketchybar --bar height=27 \
   blur_radius=30 \
   position=bottom sticky=on \
-  margin=10 padding_left=0 \
-  padding_right=0 corner_radius=5 color=$BAR_COLOR
+  padding_left=0 \
+  padding_right=0 corner_radius=0 color=$BAR_COLOR
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
