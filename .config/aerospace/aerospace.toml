@@ -13,7 +13,8 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget borders style=round a	active_color=0xffbb9af7 inactive_color=0x00000000 width=9.0'
+  'exec-and-forget borders style=round a	active_color=0xffbb9af7 inactive_color=0x00000000 width=9.0',
+  'exec-and-forget sketchybar'
 ]
 
 # Notify Sketchybar about workspace change
@@ -115,7 +116,7 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-b = 'workspace B'
 alt-t = 'workspace T'
-alt-d = 'workspace D'
+alt-e = 'workspace E'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -123,7 +124,7 @@ alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-t = 'move-node-to-workspace T'
-alt-shift-d = 'move-node-to-workspace D'
+alt-shift-e = 'move-node-to-workspace E'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -158,6 +159,9 @@ run = 'move-node-to-workspace T' # mnemonics T - Terminal
 if.app-id = 'company.thebrowser.Browser'
 run = "move-node-to-workspace B"
 
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = "move-node-to-workspace B"
 
 
 [[on-window-detected]]
@@ -183,4 +187,8 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.colliderli.iina'
 run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace E'
 
