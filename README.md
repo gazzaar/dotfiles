@@ -1,6 +1,6 @@
 # your dotfiles
 
-![my-dotfiles](./dofilesImage.png)
+![my-dotfiles](./dotfilesImage.png)
 
 1- install git:
 
