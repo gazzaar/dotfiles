@@ -24,3 +24,12 @@ cd dotfiles
 ```
 stow .
 ```
+
+5- Install brew formulas and casks
+
+```shell
+xargs brew install < ~/.config/brew/Brewfile-formulae
+xargs brew install --cask < ~/.config/brew/Brewfile-casks
+
+
+```
