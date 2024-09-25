@@ -1,3 +1,4 @@
+alt - s: ~/.skhd-scripts/work.sh
 # # change window focus within space
 # alt - j: yabai -m window --focus south
 # alt - k: yabai -m window --focus north
@@ -13,7 +14,7 @@
 # # open arc
 # rctrl  - w: ~/.skhd-scripts/open_arc_and_move.sh
 # # open terminal 
-cmd - home : ~/.skhd-scripts/open_terminal_and_move.sh
+# cmd - home : ~/.skhd-scripts/open_terminal_and_move.sh
 # # open obsidian
 # cmd - insert: ~/.skhd-scripts/open_obsidian_and_move.sh
 #

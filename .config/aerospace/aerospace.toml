@@ -13,7 +13,7 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget borders style=round a	active_color=0xffbb9af7 inactive_color=0x00000000 width=9.0',
+  # 'exec-and-forget borders style=round a	active_color=0xffbb9af7 inactive_color=0x00000000 width=7.0',
   'exec-and-forget sketchybar'
 ]
 
@@ -186,9 +186,21 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.colliderli.iina'
-run = 'move-node-to-workspace 1'
+run = ['layout floating','move-node-to-workspace 1']
+
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace E'
 
+[[on-window-detected]]
+if.app-id = 'org.mozilla.thunderbird'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'layout floating'

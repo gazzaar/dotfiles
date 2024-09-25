@@ -33,6 +33,10 @@
                         {
                             "from": { "key_code": "f6" },
                             "to": [{ "key_code": "f6" }]
+                        },
+                        {
+                            "from": { "key_code": "f7" },
+                            "to": [{ "key_code": "f7" }]
                         }
                     ]
                 },
