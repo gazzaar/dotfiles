@@ -4,5 +4,6 @@
 vim.opt.colorcolumn = "100"
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*",
-  command = "highlight ColorColumn ctermbg=0 guibg=#2F334D",
+  -- command = "highlight ColorColumn ctermbg=0 guibg=#2F334D",
+  command = "highlight ColorColumn ctermbg=0 guibg=#3C3836",
 })

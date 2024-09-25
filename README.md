@@ -1,6 +1,7 @@
-# your dotfiles
+# dotfiles
 
-![my-dotfiles](./dotfilesImage.png)
+![my-dotfiles (Tokyou-night version)](./dotfilesImage.png)
+![my-dotfiles (Gruv-box version)](./dotfilesImage-gruvbox.png)
 
 1- install git:
 

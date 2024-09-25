@@ -1,5 +1,5 @@
 [plugin]
-deps = [{ use = "Ape/mediainfo", commit = "c69314e" }]
+deps = [{ use = "Ape/mediainfo", rev = "c69314e" }]
 
 [flavor]
-deps = []
+deps = [{ use = "bennyyip/gruvbox-dark", rev = "c204853" }]

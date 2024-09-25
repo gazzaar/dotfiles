@@ -5,7 +5,8 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 -- config.color_scheme = "Gruvbox dark, soft (base16)"
 config.force_reverse_video_cursor = true
-config.color_scheme = "Tokyo Night Moon"
+-- config.color_scheme = "Tokyo Night Moon"
+config.color_scheme = "Gruvbox Dark (Gogh)"
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 -- -- Fonts
 config.font_size = 21
