@@ -30,6 +30,7 @@ return {
         or function(_, server_opts)
           require("lspconfig").pyright.setup(server_opts)
         end
+      vim.lsp.set_log_level("debug")
     end,
   },
 }

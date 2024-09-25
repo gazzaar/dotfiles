@@ -14,17 +14,18 @@ return {
           org_toggle_checkbox = "<C-c>",
         },
       },
-      org_todo_keywords = { "TODO(t)", "|", "DONE", "CANCELED", "FAILED", "SIMIDONE" },
+      org_todo_keywords = { "TODO(t)", "|", "DONE", "CANCELED", "FAILED", "SIMIDONE", "ALLMOSTDONE" },
       org_todo_keyword_faces = {
         TODO = ":foreground " .. colors.orange .. " :weight bold",
         DONE = ":foreground " .. colors.blue .. " :weight bold",
         CANCELED = ":foreground " .. colors.purple .. " :weight bold",
         FAILED = ":foreground " .. colors.red .. " :weight bold",
         SIMIDONE = ":foreground " .. colors.green .. " :weight bold",
+        ALLMOSTDONE = ":foreground " .. colors.yellow .. " :weight bold",
       },
       org_hide_emphasis_markers = true,
       org_startup_indented = true,
-      org_adapt_indentation = false,
+      org_adapt_indentation = true,
 
       org_capture_templates = {
         i = {
