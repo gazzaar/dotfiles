@@ -167,15 +167,12 @@
 #
 # ######################## PURE ###########################
 format = """
-$username\
-$hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
 $cmd_duration\
 $line_break\
-$python\
 $character"""
 
 
@@ -183,6 +180,16 @@ $character"""
 style = "blue"
 truncation_length = 1
 truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"klog" = ""
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+".config" = ""
+"~" = ""
 
 [character]
 success_symbol = "[❯](purple)"
@@ -212,6 +219,3 @@ style = "bright-black"
 format = "[$duration]($style) "
 style = "yellow"
 
-[python]
-format = "[$virtualenv]($style) "
-style = "bright-black"

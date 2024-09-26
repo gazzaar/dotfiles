@@ -113,3 +113,5 @@ bindkey '^[[B' history-search-forward
 # autoload -U promptinit; promptinit
 # prompt pure
 eval "$(starship init zsh)"
+
+source /Users/fathysameh/.config/broot/launcher/bash/br
