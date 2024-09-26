@@ -18,6 +18,7 @@ bdw-gc
 berkeley-db@5
 bitwarden-cli
 borders
+broot
 brotli
 btop
 c-ares
