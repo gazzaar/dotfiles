@@ -1,4 +1,4 @@
-alt - s: ~/.skhd-scripts/work.sh
+# alt - s: ~/.skhd-scripts/work.sh
 # # change window focus within space
 # alt - j: yabai -m window --focus south
 # alt - k: yabai -m window --focus north
@@ -12,9 +12,9 @@ alt - s: ~/.skhd-scripts/work.sh
 # alt - r: yabai -m space --rotate 270
 #
 # # open arc
-# rctrl  - w: ~/.skhd-scripts/open_arc_and_move.sh
+rctrl  - w: open -a Brave\ Browser
 # # open terminal 
-# cmd - home : ~/.skhd-scripts/open_terminal_and_move.sh
+cmd - return: open -a wezterm
 # # open obsidian
 # cmd - insert: ~/.skhd-scripts/open_obsidian_and_move.sh
 #
