@@ -8,6 +8,7 @@ bindkey -M viins 'jk' vi-cmd-mode
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/dotfiles/"
 export EDITOR=nvim
+export BROWSER="Brave Browser"
 export VISUAL=nvim
 export KLOG="$HOME/.nb/klog/"
 export NB_EDITOR='nvim'
@@ -17,6 +18,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/opt/homebrew/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
 export TERMINAL=Wezterm
 export TERM='xterm-256color'
 export HOMEBREW_NO_AUTO_UPDATE=true
@@ -25,11 +28,10 @@ export LANG=en_US.UTF-8
 
 # DEFAULT_USER="gazzaar"
 # prompt_context(){}
-#
-# # Set the prompt to display only the current directory name
+
+# Set the prompt to display only the current directory name
 # PS1='%1~ %# '
-#
-ZSH_THEME=""
+# ZSH_THEME=robbyrussell
 
 # Sketchybar interactivity overloads
 function brew() {
@@ -40,7 +42,19 @@ function brew() {
   fi
 }
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+# Syntax highlighting
+# if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+#     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# fi
+
+# Autosuggestions
+# if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+#     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fi
+#
+#
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+plugins=(git zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,6 +62,7 @@ source $ZSH/oh-my-zsh.sh
 alias c="clear"
 alias arm="env /usr/bin/arch -arm64 /bin/zsh --login"
 alias intel="env /usr/bin/arch -x86_64 /bin/zsh --login"
+alias minecraft="java -jar Tlauncher.jar"
 alias commit="git commit -m"
 alias klog="cd $KLOG"
 alias work="$HOME/.local/bin/work"
@@ -56,8 +71,8 @@ alias vi="nvim"
 alias vim="nvim"
 alias son="tmux set-option -g status on"
 alias soff="tmux set-option -g status off"
-alias t="tmux"
-alias org="nb open area/ideas.org"
+alias t="tmux attach -t" 
+alias org="vim $KLOG/area/ideas.org"
 alias gs="git status"
 alias dot="cd $DOTFILES"
 alias cd="z"
@@ -66,7 +81,9 @@ alias ll="eza -l "
 alias e="exit"
 alias lg="lazygit"
 alias y="yazi"
-alias logs="nb open area/log.org"
+alias logs="vim $KLOG/area/log.org"
+alias ~='cd ~'
+eval $(thefuck --alias)
 # --------------------- fzf --------------------- #
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
@@ -109,9 +126,14 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-# fpath+=("$(brew --prefix)/share/zsh/site-functions")
-# autoload -U promptinit; promptinit
-# prompt pure
-eval "$(starship init zsh)"
+# Set up Pure with your custom directory display
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
+# eval "$(starship init zsh)"
 
 source /Users/fathysameh/.config/broot/launcher/bash/br
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
