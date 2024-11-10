@@ -32,7 +32,7 @@ return {
         ALLMOSTDONE = ":foreground " .. gruvbox.palette.neutral_yellow .. " :weight bold",
       },
       org_hide_emphasis_markers = true,
-      org_startup_indented = true,
+      org_startup_indented = false,
       org_adapt_indentation = true,
 
       org_capture_templates = {
@@ -49,7 +49,7 @@ return {
         },
         l = {
           description = "Quick Links",
-          template = "* [[%x][%?]]\n  %u\n",
+          template = "* [[%x][%?]]",
           target = "~/.nb/klog/resources/links.org",
           -- properties = {
           -- 	empty_lines = {
