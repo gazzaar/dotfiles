@@ -8,6 +8,7 @@ config.force_reverse_video_cursor = true
 -- config.color_scheme = "Tokyo Night Moon"
 config.color_scheme = "Gruvbox Dark (Gogh)"
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.max_fps = 120
 -- -- Fonts
 config.font_size = 21
 config.font = wezterm.font({ family = "FiraCode Nerd Font" })
@@ -38,7 +39,8 @@ config.window_padding = {
 	bottom = 0,
 }
 config.window_decorations = "RESIZE"
--- config.window_background_opacity = 0.7
--- config.macos_window_background_blur = 10
+config.window_close_confirmation = "NeverPrompt"
+-- config.window_background_opacity = 0.9
+config.macos_window_background_blur = 10
 -- and finally, return the configuration to wezterm
 return config
