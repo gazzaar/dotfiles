@@ -3,8 +3,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-set -o vi
-bindkey -M viins 'jk' vi-cmd-mode
 export ZSH="$HOME/.oh-my-zsh"
 export DOTFILES="$HOME/dotfiles/"
 export EDITOR=nvim
@@ -12,7 +10,6 @@ export BROWSER="Brave Browser"
 export VISUAL=nvim
 export KLOG="$HOME/.nb/klog/"
 export NB_EDITOR='nvim'
-# export BAT_THEME="Catppuccin Mocha"
 export BAT_THEME="gruvbox-dark"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -33,6 +30,60 @@ export LANG=en_US.UTF-8
 # PS1='%1~ %# '
 # ZSH_THEME=robbyrussell
 
+# Gruvbox color palette with Zsh escape sequences
+GRUVBOX_BG=$'%{\e[48;5;235m%}'        # Dark background (not used)
+GRUVBOX_GIT=$'%{\e[38;5;245m%}'       # Gray (#928374) for Git branch
+GRUVBOX_ARROW=$'%{\e[38;5;132m%}'       # Purple (#b16286) for the current directory
+GRUVBOX_DIR=$'%{\e[38;5;66m%}'      # Blue-gray (#458588) for arrows in insert mode
+RESET=$'%{\e[0m%}'                    # Reset to default terminal colors
+
+# Function to get the current Git branch and status
+function git_branch {
+  local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+  if [[ -n $branch ]]; then
+    # Check for changes (unstaged or uncommitted)
+    if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
+      echo -n "${GRUVBOX_GIT}${branch}*${RESET} "
+    else
+      # Check if we need to push
+      local ahead=$(git rev-list @{u}..HEAD 2>/dev/null | wc -l)
+      # Check if we need to pull
+      local behind=$(git rev-list HEAD..@{u} 2>/dev/null | wc -l)
+      
+      if [[ $ahead -gt 0 ]]; then
+        echo -n "${GRUVBOX_GIT}${branch}↑${RESET} "
+      elif [[ $behind -gt 0 ]]; then
+        echo -n "${GRUVBOX_GIT}${branch}↓${RESET} "
+      else
+        echo -n "${GRUVBOX_GIT}${branch}${RESET} "
+      fi
+    fi
+  fi
+}
+
+# Function to update the prompt based on vi mode
+function update_prompt {
+    if [[ $KEYMAP == vicmd ]]; then
+        # Vim Normal Mode - Arrow points left, uses red color
+        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}←${RESET} $(git_branch)"
+    else
+        # Vim Insert Mode - Arrow points right, uses blue color
+        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}→${RESET} $(git_branch)"
+    fi
+}
+
+# Wrapper function for zle-keymap-select
+function zle-keymap-select {
+    update_prompt
+    zle reset-prompt
+}
+
+# Call the function whenever the keymap changes
+zle -N zle-keymap-select
+
+# Set the initial prompt based on vi mode
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd update_prompt
 # Sketchybar interactivity overloads
 function brew() {
   command brew "$@" 
@@ -53,7 +104,7 @@ function brew() {
 # fi
 #
 #
-# plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
+ # plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 plugins=(git zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
@@ -85,7 +136,7 @@ alias logs="vim $KLOG/area/log.org"
 alias ~='cd ~'
 eval $(thefuck --alias)
 # --------------------- fzf --------------------- #
-
+#
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=fg:-1,fg+:#fbf1c7,bg:-1,bg+:#262626
   --color=hl:#83a598,hl+:#458588,info:#afaf87,marker:#98971a
@@ -94,18 +145,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --color=label:#aeaeae,query:#d9d9d9
   --preview-window="border-rounded" --prompt="> " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse-list"'
-
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-#   --color=fg:#c0caf5,fg+:#ffffff,bg:#1a1b26,bg+:#292e42
-#   --color=hl:#7aa2f7,hl+:#7dcfff,info:#7aa2f7,marker:#9ece6a
-#   --color=prompt:#bb9af7,spinner:#bb9af7,pointer:#f7768e,header:#7aa2f7
-#   --color=border:#7aa2f7,preview-fg:#c0caf5,preview-border:#7aa2f7,preview-scrollbar:#7aa2f7
-#   --color=label:#7a7a7a,query:#ffffff
-#   --preview-window="border-rounded" --prompt="❯ " --marker="❯" --pointer="◆"
-#   --separator="─" --scrollbar="│" --layout="reverse-list"'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
@@ -126,14 +165,16 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
+################ I Made my own prompt above #######################3
 # Set up Pure with your custom directory display
-fpath+=($HOME/.zsh/pure)
-autoload -U promptinit; promptinit
-prompt pure
-# eval "$(starship init zsh)"
+# fpath+=($HOME/.zsh/pure)
+# autoload -U promptinit; promptinit
+# prompt pure
 
 source /Users/fathysameh/.config/broot/launcher/bash/br
 
+set -o vi
+bindkey -M viins 'jk' vi-cmd-mode
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
