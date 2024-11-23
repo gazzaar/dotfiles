@@ -1,7 +1,31 @@
 set selection-clipboard clipboard
+# set selection-notification false
 map i recolor
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 map r reload
-set page-padding 1
+set page-padding 0
 map q quit
+set default-bg                  "#282828" # Gruvbox dark background
+set default-fg                  "#ebdbb2" # Gruvbox light foreground
+set statusbar-fg                "#ebdbb2" # Light foreground
+set statusbar-bg                "#504945" # Gruvbox dark2
+set inputbar-bg                 "#3c3836" # Gruvbox dark1
+set inputbar-fg                 "#ebdbb2" # Light text
+set notification-bg             "#3c3836" # Dark1
+set notification-fg             "#ebdbb2" # Light text
+set notification-error-bg       "#3c3836" # Dark1
+set notification-error-fg       "#fb4934" # Gruvbox red
+set notification-warning-bg     "#3c3836" # Dark1
+set notification-warning-fg     "#fabd2f" # Gruvbox yellow
+set highlight-color            "#458588" # Gruvbox blue
+set highlight-active-color     "#83a598" # Gruvbox light blue
+set completion-bg              "#3c3836" # Dark1
+set completion-fg              "#83a598" # Light blue
+set completion-highlight-fg    "#ebdbb2" # Light text
+set completion-highlight-bg    "#83a598" # Light blue
+set recolor-lightcolor         "#282828" # Dark background
+set recolor-darkcolor         "#ebdbb2" # Light foreground
+
+set recolor                     "false"
+set recolor-keephue             "false"

@@ -29,13 +29,15 @@ export LANG=en_US.UTF-8
 # Set the prompt to display only the current directory name
 # PS1='%1~ %# '
 # ZSH_THEME=robbyrussell
-
-# Gruvbox color palette with Zsh escape sequences
+#
+# # Gruvbox color palette with Zsh escape sequences
 GRUVBOX_BG=$'%{\e[48;5;235m%}'        # Dark background (not used)
 GRUVBOX_GIT=$'%{\e[38;5;245m%}'       # Gray (#928374) for Git branch
-GRUVBOX_ARROW=$'%{\e[38;5;132m%}'       # Purple (#b16286) for the current directory
-GRUVBOX_DIR=$'%{\e[38;5;66m%}'      # Blue-gray (#458588) for arrows in insert mode
+#GRUVBOX_ARROW=$'%{\e[38;5;132m%}'       # Purple (#b16286) for the current directory
+# GRUVBOX_DIR=$'%{\e[38;5;66m%}'      # Blue-gray (#458588) for arrows in insert mode
 RESET=$'%{\e[0m%}'                    # Reset to default terminal colors
+GRUVBOX_DIR=$'%{\e[39m%}'      # Default foreground color
+GRUVBOX_ARROW=$'%{\e[39m%}'      # Default foreground color
 
 # Function to get the current Git branch and status
 function git_branch {
@@ -43,17 +45,17 @@ function git_branch {
   if [[ -n $branch ]]; then
     # Check for changes (unstaged or uncommitted)
     if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-      echo -n "${GRUVBOX_GIT}${branch}*${RESET} "
+      echo -n "${GRUVBOX_GIT}${branch} *${RESET} "
     else
       # Check if we need to push
       local ahead=$(git rev-list @{u}..HEAD 2>/dev/null | wc -l)
       # Check if we need to pull
       local behind=$(git rev-list HEAD..@{u} 2>/dev/null | wc -l)
-      
+
       if [[ $ahead -gt 0 ]]; then
-        echo -n "${GRUVBOX_GIT}${branch}↑${RESET} "
+        echo -n "${GRUVBOX_GIT}${branch} ↑${RESET} "
       elif [[ $behind -gt 0 ]]; then
-        echo -n "${GRUVBOX_GIT}${branch}↓${RESET} "
+        echo -n "${GRUVBOX_GIT}${branch} ↓${RESET} "
       else
         echo -n "${GRUVBOX_GIT}${branch}${RESET} "
       fi
@@ -65,10 +67,12 @@ function git_branch {
 function update_prompt {
     if [[ $KEYMAP == vicmd ]]; then
         # Vim Normal Mode - Arrow points left, uses red color
-        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}←${RESET} $(git_branch)"
+        # PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}❮${RESET} $(git_branch)"
+        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}<${RESET} $(git_branch)"
     else
         # Vim Insert Mode - Arrow points right, uses blue color
-        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}→${RESET} $(git_branch)"
+        # PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}❯${RESET} $(git_branch)"
+        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}>${RESET} $(git_branch)"
     fi
 }
 
@@ -84,6 +88,40 @@ zle -N zle-keymap-select
 # Set the initial prompt based on vi mode
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd update_prompt
+
+
+############ TIMER Function ##########################
+# Timing function for command execution
+function preexec() {
+  timer=$(date +%s)
+}
+
+function precmd() {
+  if [ $timer ]; then
+    now=$(date +%s)
+    elapsed=$(($now - $timer))
+    
+    # Only show if command took more than 1 second
+    if [ $elapsed -ge 1 ]; then
+      # Convert to hours, minutes, seconds
+      if [ $elapsed -ge 3600 ]; then
+        hours=$(($elapsed / 3600))
+        minutes=$(( ($elapsed % 3600) / 60 ))
+        seconds=$(($elapsed % 60))
+        print -P "\e[33m${hours}h ${minutes}m ${seconds}s\e[0m"
+      elif [ $elapsed -ge 60 ]; then
+        minutes=$(($elapsed / 60))
+        seconds=$(($elapsed % 60))
+        print -P "\e[33m${minutes}m ${seconds}s\e[0m"
+      else
+        print -P "\e[33m${elapsed}s\e[0m"
+      fi
+    fi
+    
+    unset timer
+  fi
+}
+
 # Sketchybar interactivity overloads
 function brew() {
   command brew "$@" 
@@ -127,24 +165,37 @@ alias org="vim $KLOG/area/ideas.org"
 alias gs="git status"
 alias dot="cd $DOTFILES"
 alias cd="z"
-alias ls="eza --color=always --long --git --no-filesize --no-time --no-user --no-permissions"
+alias ls="eza -x --color=always --git --no-filesize --no-time --no-user --no-permissions "
 alias ll="eza -l "
 alias e="exit"
 alias lg="lazygit"
 alias y="yazi"
 alias logs="vim $KLOG/area/log.org"
 alias ~='cd ~'
+alias manage='ncdu /'
 eval $(thefuck --alias)
 # --------------------- fzf --------------------- #
-#
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color=fg:-1,fg+:#fbf1c7,bg:-1,bg+:#262626
-  --color=hl:#83a598,hl+:#458588,info:#afaf87,marker:#98971a
-  --color=prompt:#b8bb26,spinner:#b16286,pointer:#d3869b,header:#87afaf
-  --color=border:#d65d0e,preview-fg:#ebdbb2,preview-border:#689d6a,preview-scrollbar:#689d6a
-  --color=label:#aeaeae,query:#d9d9d9
-  --preview-window="border-rounded" --prompt="> " --marker=">" --pointer="◆"
-  --separator="─" --scrollbar="│" --layout="reverse-list"'
+  --color=fg:#ebdbb2,bg:#1d2021,fg+:#fbf1c7,bg+:#3c3836
+  --color=hl:#83a598,hl+:#458588,info:#fabd2f,marker:#98971a
+  --color=prompt:#b8bb26,spinner:#d3869b,pointer:#fb4934,header:#8ec07c
+  --color=border:#d65d0e,preview-fg:#ebdbb2,preview-bg:#282828
+  --color=preview-border:#689d6a,preview-scrollbar:#a89984
+  --color=gutter:#1d2021,query:#d9d9d9,label:#665c54
+  --preview-window="border-rounded" 
+  --prompt="❯ " 
+  --marker="▶" 
+  --pointer="◆" 
+  --separator="─" 
+  --scrollbar="│" 
+  --layout="reverse-list"
+  --border="rounded"
+  --margin=1,2
+  --padding=1
+'
+if [ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]; then
+    source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+fi
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"

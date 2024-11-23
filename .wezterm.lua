@@ -3,9 +3,7 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
--- config.color_scheme = "Gruvbox dark, soft (base16)"
 config.force_reverse_video_cursor = true
--- config.color_scheme = "Tokyo Night Moon"
 config.color_scheme = "Gruvbox Dark (Gogh)"
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 config.max_fps = 120
@@ -33,14 +31,14 @@ config.font_rules = {
 config.default_cursor_style = "SteadyBar"
 config.enable_tab_bar = false
 config.window_padding = {
-	left = 0,
+	left = 3,
 	right = 0,
-	top = 0,
+	top = 3,
 	bottom = 0,
 }
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
 -- config.window_background_opacity = 0.9
-config.macos_window_background_blur = 10
+-- config.macos_window_background_blur = 8
 -- and finally, return the configuration to wezterm
 return config
