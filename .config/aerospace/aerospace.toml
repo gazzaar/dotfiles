@@ -13,7 +13,7 @@ after-login-command = []
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget borders style=round a	active_color=0xff458588 inactive_color=0x00000000 width=4.0',
+  # 'exec-and-forget borders style=round a	active_color=0xffBB9AF7 inactive_color=0x00000000 width=5.0',
   'exec-and-forget sketchybar'
 ]
 
@@ -60,11 +60,11 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 5
-inner.vertical =   5
-outer.left =       5
-outer.bottom =     27
-outer.top =        5
-outer.right =      5
+inner.vertical =   0
+outer.left =       0
+outer.bottom=     22
+outer.top=     0
+outer.right =     0
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -156,8 +156,8 @@ if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace T' # mnemonics T - Terminal
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = "move-node-to-workspace B"
+if.app-name-regex-substring = 'zathura'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
@@ -188,6 +188,9 @@ run = 'layout floating'
 if.app-id = 'com.colliderli.iina'
 run = ['layout floating','move-node-to-workspace 1']
 
+[[on-window-detected]]
+if.app-id = 'com.apple.QuickTimePlayerX'
+run = ['layout floating','move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
@@ -228,3 +231,7 @@ run = 'move-node-to-workspace E'
 [[on-window-detected]]
 if.app-id  = 'com.jetbrains.intellij.ce'
 run = 'move-node-to-workspace E'
+
+[[on-window-detected]]
+if.app-id  = 'com.apple.Preview'
+run = 'move-node-to-workspace 2'

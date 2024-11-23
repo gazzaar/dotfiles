@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   ft = { "org" },
   config = function()
-    -- local colors = require("tokyonight.colors").setup({ style = "moon" })
     local gruvbox = require("gruvbox")
     require("orgmode").setup({
       org_agenda_files = "~/.nb/klog/**/*",
@@ -17,12 +16,6 @@ return {
       },
       org_todo_keywords = { "TODO(t)", "|", "DONE", "CANCELED", "FAILED", "SIMIDONE", "ALLMOSTDONE" },
       org_todo_keyword_faces = {
-        -- TODO = ":foreground " .. colors.orange .. " :weight bold",
-        -- DONE = ":foreground " .. colors.blue .. " :weight bold",
-        -- CANCELED = ":foreground " .. colors.purple .. " :weight bold",
-        -- FAILED = ":foreground " .. colors.red .. " :weight bold",
-        -- SIMIDONE = ":foreground " .. colors.green .. " :weight bold",
-        -- ALLMOSTDONE = ":foreground " .. colors.yellow .. " :weight bold",
         -- Gruv box theme
         TODO = ":foreground " .. gruvbox.palette.neutral_orange .. " :weight bold",
         DONE = ":foreground " .. gruvbox.palette.neutral_blue .. " :weight bold",
@@ -31,6 +24,8 @@ return {
         SIMIDONE = ":foreground " .. gruvbox.palette.neutral_green .. " :weight bold",
         ALLMOSTDONE = ":foreground " .. gruvbox.palette.neutral_yellow .. " :weight bold",
       },
+      org_startup_folded = "overview",
+      org_folding_level = 0,
       org_hide_emphasis_markers = true,
       org_startup_indented = false,
       org_adapt_indentation = true,
