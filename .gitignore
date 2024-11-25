@@ -2,3 +2,8 @@
 .config/ok/
 .config/simple-update-notifier/ 
 .config/neomutt/ 
+.config/stklos/
+.config/xbuild/
+.config/gtk-2.0/
+.config/asciinema/
+
