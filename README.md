@@ -3,6 +3,8 @@
 ![my-dotfiles (Tokyou-night version)](./dotfilesImage.png)
 ![my-dotfiles (Gruv-box version)](./dotfilesImage-gruvbox.png)
 
+- My configuration evolves over time, but I always strive for simplicity, especially when it comes to window managers. For that reason, I’ve switched between several window managers, from Rectangle to Yabai to AeroSpace, and finally to Raycast built in window manager.
+
 1- install git:
 
 ```
