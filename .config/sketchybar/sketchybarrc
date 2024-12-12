@@ -63,9 +63,6 @@ done
 # source $ITEM_DIR/spaces.sh
 source $ITEM_DIR/front_app.sh
 
-# -- Middle Side Of Notch Items --
-# source $ITEM_DIR/media.sh
-
 # -- Right Side Items --
 source $ITEM_DIR/calendar.sh
 source $ITEM_DIR/volume.sh
