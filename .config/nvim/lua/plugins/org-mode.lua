@@ -33,7 +33,7 @@ return {
       org_capture_templates = {
         i = {
           description = "Ideas",
-          template = "* %?\n  %u\n\n",
+          template = "* %?",
           target = "~/.nb/klog/area/ideas.org",
           -- properties = {
           -- 	empty_lines = {

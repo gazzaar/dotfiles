@@ -4,7 +4,7 @@ return {
   --
   config = function()
     require("gruvbox").setup({
-      transparent_mode = false,
+      -- transparent_mode = true,
     })
 
     -- setup must be called before loading

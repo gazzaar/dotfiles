@@ -1,31 +1,32 @@
 return {
   {
-    "folke/noice.nvim",
-    opts = function(_, opts)
-      table.insert(opts.routes, {
-        filter = {
-          event = "notify",
-          find = "No information available",
-        },
-        opts = { skip = true },
-      })
-      opts.presets.lsp_doc_border = true
-    end,
-  },
-
-  {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, opts)
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = function()
       local logo = [[
-  ___    __    ____  ____    __      __    ____ 
- / __)  /__\  (_   )(_   )  /__\    /__\  (  _ \
-( (_-. /(__)\  / /_  / /_  /(__)\  /(__)\  )   /
- \___/(__)(__)(____)(____)(__)(__)(__)(__)(_)\_)
+  __ _   __ _  ____ ____ __ _   __ _  _ __ 
+ / _` | / _` ||_  /|_  // _` | / _` || '__|
+| (_| || (_| | / /  / /| (_| || (_| || |   
+ \__, | \__,_|/___|/___|\__,_| \__,_||_|   
+  __/ |                                    
+ |___/                                     
       ]]
 
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
+      return {
+        dashboard = {
+          enabled = true,
+          preset = {
+            header = logo,
+          },
+        },
+
+        bigfile = { enabled = true },
+        notifier = { enabled = true },
+        quickfile = { enabled = true },
+        statuscolumn = { enabled = true },
+        words = { enabled = true },
+      }
     end,
   },
 }
