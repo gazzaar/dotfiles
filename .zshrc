@@ -23,104 +23,6 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_AUTO_UPDATE=true
 export LANG=en_US.UTF-8
 
-# DEFAULT_USER="gazzaar"
-# prompt_context(){}
-
-# Set the prompt to display only the current directory name
-# PS1='%1~ %# '
-# ZSH_THEME=robbyrussell
-#
-# # Gruvbox color palette with Zsh escape sequences
-GRUVBOX_BG=$'%{\e[48;5;235m%}'        # Dark background (not used)
-GRUVBOX_GIT=$'%{\e[38;5;245m%}'       # Gray (#928374) for Git branch
-#GRUVBOX_ARROW=$'%{\e[38;5;132m%}'       # Purple (#b16286) for the current directory
-# GRUVBOX_DIR=$'%{\e[38;5;66m%}'      # Blue-gray (#458588) for arrows in insert mode
-RESET=$'%{\e[0m%}'                    # Reset to default terminal colors
-GRUVBOX_DIR=$'%{\e[39m%}'      # Default foreground color
-GRUVBOX_ARROW=$'%{\e[39m%}'      # Default foreground color
-
-# Function to get the current Git branch and status
-function git_branch {
-  local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
-  if [[ -n $branch ]]; then
-    # Check for changes (unstaged or uncommitted)
-    if [[ -n $(git status --porcelain 2>/dev/null) ]]; then
-      echo -n "${GRUVBOX_GIT}${branch} *${RESET} "
-    else
-      # Check if we need to push
-      local ahead=$(git rev-list @{u}..HEAD 2>/dev/null | wc -l)
-      # Check if we need to pull
-      local behind=$(git rev-list HEAD..@{u} 2>/dev/null | wc -l)
-
-      if [[ $ahead -gt 0 ]]; then
-        echo -n "${GRUVBOX_GIT}${branch} ↑${RESET} "
-      elif [[ $behind -gt 0 ]]; then
-        echo -n "${GRUVBOX_GIT}${branch} ↓${RESET} "
-      else
-        echo -n "${GRUVBOX_GIT}${branch}${RESET} "
-      fi
-    fi
-  fi
-}
-
-# Function to update the prompt based on vi mode
-function update_prompt {
-    if [[ $KEYMAP == vicmd ]]; then
-        # Vim Normal Mode - Arrow points left, uses red color
-        # PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}❮${RESET} $(git_branch)"
-        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}<${RESET} $(git_branch)"
-    else
-        # Vim Insert Mode - Arrow points right, uses blue color
-        # PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}❯${RESET} $(git_branch)"
-        PROMPT="${GRUVBOX_DIR}%1~${RESET} ${GRUVBOX_ARROW}>${RESET} $(git_branch)"
-    fi
-}
-
-# Wrapper function for zle-keymap-select
-function zle-keymap-select {
-    update_prompt
-    zle reset-prompt
-}
-
-# Call the function whenever the keymap changes
-zle -N zle-keymap-select
-
-# Set the initial prompt based on vi mode
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd update_prompt
-
-
-############ TIMER Function ##########################
-# Timing function for command execution
-function preexec() {
-  timer=$(date +%s)
-}
-
-function precmd() {
-  if [ $timer ]; then
-    now=$(date +%s)
-    elapsed=$(($now - $timer))
-    
-    # Only show if command took more than 1 second
-    if [ $elapsed -ge 1 ]; then
-      # Convert to hours, minutes, seconds
-      if [ $elapsed -ge 3600 ]; then
-        hours=$(($elapsed / 3600))
-        minutes=$(( ($elapsed % 3600) / 60 ))
-        seconds=$(($elapsed % 60))
-        print -P "\e[33m${hours}h ${minutes}m ${seconds}s\e[0m"
-      elif [ $elapsed -ge 60 ]; then
-        minutes=$(($elapsed / 60))
-        seconds=$(($elapsed % 60))
-        print -P "\e[33m${minutes}m ${seconds}s\e[0m"
-      else
-        print -P "\e[33m${elapsed}s\e[0m"
-      fi
-    fi
-    
-    unset timer
-  fi
-}
 
 # Sketchybar interactivity overloads
 function brew() {
@@ -218,9 +120,9 @@ bindkey '^[[B' history-search-forward
 
 ################ I Made my own prompt above #######################3
 # Set up Pure with your custom directory display
-# fpath+=($HOME/.zsh/pure)
-# autoload -U promptinit; promptinit
-# prompt pure
+fpath+=($HOME/.zsh/pure)
+autoload -U promptinit; promptinit
+prompt pure
 
 source /Users/fathysameh/.config/broot/launcher/bash/br
 
