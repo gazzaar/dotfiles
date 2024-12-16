@@ -75,6 +75,8 @@ alias y="yazi"
 alias logs="vim $KLOG/area/log.org"
 alias ~='cd ~'
 alias manage='ncdu /'
+alias study='python3 ~/dev/study-tracker/no_clip_study-tracker.py'
+alias studytime='node ~/studyTrackerAdd/index.js'
 eval $(thefuck --alias)
 # --------------------- fzf --------------------- #
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
