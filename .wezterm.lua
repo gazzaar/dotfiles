@@ -5,10 +5,13 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 config.force_reverse_video_cursor = true
 config.color_scheme = "Gruvbox Dark (Gogh)"
+config.colors = {
+	foreground = "#d5c4a1",
+}
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
 config.max_fps = 120
 -- -- Fonts
-config.font_size = 21
+config.font_size = 20
 config.font = wezterm.font({ family = "FiraCode Nerd Font" })
 config.bold_brightens_ansi_colors = true
 config.font_rules = {
