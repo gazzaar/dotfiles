@@ -10,7 +10,7 @@ return {
         filetypes = { "python" },
         root_dir = function(fname)
           local util = require("lspconfig.util")
-          return util.root_pattern(".git", "pyrightconfig.json")(fname) or util.path.dirname(fname)
+          return util.root_pattern(".git", "pyrightconfig.json")(fname) or vim.fs.dirname(fname)
         end,
         settings = {
           python = {

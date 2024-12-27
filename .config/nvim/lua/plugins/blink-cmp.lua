@@ -25,13 +25,11 @@ return {
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
     },
-
-    -- default list of enabled providers defined so that you can extend it
-    -- elsewhere in your config, without redefining it, via `opts_extend`
-    sources = {
-      completion = {
-        enabled_providers = { "lsp", "path", "snippets", "orgmode", "buffer" },
-      },
-    },
+    --
+    --   -- default list of enabled providers defined so that you can extend it
+    --   -- elsewhere in your config, without redefining it, via `opts_extend`
+    --   sources = {
+    --     default = { "lsp", "path", "snippets", "orgmode", "buffer" },
+    --   },
   },
 }
