@@ -24,6 +24,7 @@ return {
 
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
+      ["CR>"] = { "select_and_accept", "fallback" },
     },
     --
     --   -- default list of enabled providers defined so that you can extend it
