@@ -77,8 +77,6 @@ alias ~='cd ~'
 alias manage='ncdu /'
 alias study='python3 ~/dev/study-tracker/no_clip_study-tracker.py'
 alias studytime='node ~/studyTrackerAdd/index.js'
-alias todo="tjournal""
-
 eval $(thefuck --alias)
 # --------------------- fzf --------------------- #
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
