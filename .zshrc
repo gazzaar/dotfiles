@@ -17,7 +17,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/opt/homebrew/bin:$PATH"
 export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
-export TERMINAL=Wezterm
+export TERMINAL=ghostty
 export TERM='xterm-256color'
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_AUTO_UPDATE=true
@@ -71,9 +71,7 @@ alias ls="eza -x --color=always --git --no-filesize --no-time --no-user --no-per
 alias ll="eza -l "
 alias e="exit"
 alias lg="lazygit"
-alias y="yazi"
 alias logs="vim $KLOG/area/log.org"
-alias ~='cd ~'
 alias manage='ncdu /'
 alias study='python3 ~/dev/study-tracker/no_clip_study-tracker.py'
 alias studytime='node ~/studyTrackerAdd/index.js'
@@ -127,6 +125,15 @@ autoload -U promptinit; promptinit
 prompt pure
 
 source /Users/fathysameh/.config/broot/launcher/bash/br
+
+function y() {
+ local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+ yazi "$@" --cwd-file="$tmp"
+ if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+ builtin cd -- "$cwd"
+ fi
+ rm -f -- "$tmp"
+}
 
 set -o vi
 bindkey -M viins 'jk' vi-cmd-mode
