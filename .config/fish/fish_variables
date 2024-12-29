@@ -1,0 +1,68 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export BAT_THEME:gruvbox\x2ddark
+SETUVAR --export BROWSER:Brave\x20Browser
+SETUVAR --export DOTFILES:/Users/fathysameh/dotfiles/
+SETUVAR --export EDITOR:nvim
+SETUVAR --export FZF_DEFAULT_OPTS:\x0a\x20\x20\x2d\x2dcolor\x3dfg\x3a\x23ebdbb2\x2cbg\x3a\x231d2021\x2cfg\x2b\x3a\x23fbf1c7\x2cbg\x2b\x3a\x233c3836\x0a\x20\x20\x2d\x2dcolor\x3dhl\x3a\x2383a598\x2chl\x2b\x3a\x23458588\x2cinfo\x3a\x23fabd2f\x2cmarker\x3a\x2398971a\x0a\x20\x20\x2d\x2dcolor\x3dprompt\x3a\x23b8bb26\x2cspinner\x3a\x23d3869b\x2cpointer\x3a\x23fb4934\x2cheader\x3a\x238ec07c\x0a\x20\x20\x2d\x2dcolor\x3dborder\x3a\x23d65d0e\x2cpreview\x2dfg\x3a\x23ebdbb2\x2cpreview\x2dbg\x3a\x23282828\x0a\x20\x20\x2d\x2dcolor\x3dpreview\x2dborder\x3a\x23689d6a\x2cpreview\x2dscrollbar\x3a\x23a89984\x0a\x20\x20\x2d\x2dcolor\x3dgutter\x3a\x231d2021\x2cquery\x3a\x23d9d9d9\x2clabel\x3a\x23665c54\x0a\x20\x20\x2d\x2dpreview\x2dwindow\x3d\x22border\x2drounded\x22\x20\x0a\x20\x20\x2d\x2dprompt\x3d\x22\u276f\x20\x22\x20\x0a\x20\x20\x2d\x2dmarker\x3d\x22\u25b6\x22\x20\x0a\x20\x20\x2d\x2dpointer\x3d\x22\u25c6\x22\x20\x0a\x20\x20\x2d\x2dseparator\x3d\x22\u2500\x22\x20\x0a\x20\x20\x2d\x2dscrollbar\x3d\x22\u2502\x22\x20\x0a\x20\x20\x2d\x2dlayout\x3d\x22reverse\x2dlist\x22\x0a\x20\x20\x2d\x2dborder\x3d\x22rounded\x22\x0a\x20\x20\x2d\x2dmargin\x3d1\x2c2\x0a\x20\x20\x2d\x2dpadding\x3d1\x0a
+SETUVAR --export HOMEBREW_NO_AUTO_UPDATE:true
+SETUVAR --export JAVA_HOME:/opt/homebrew/Cellar/openjdk/23\x2e0\x2e1/libexec/openjdk\x2ejdk/Contents/Home
+SETUVAR --export KLOG:/Users/fathysameh/\x2enb/klog/
+SETUVAR --export LANG:en_US\x2eUTF\x2d8
+SETUVAR --export NB_EDITOR:nvim
+SETUVAR --export NVM_DIR:/Users/fathysameh/\x2envm
+SETUVAR --export SDKMAN_DIR:/Users/fathysameh/\x2esdkman
+SETUVAR --export TERM:xterm\x2d256color
+SETUVAR --export TERMINAL:ghostty
+SETUVAR --export VISUAL:nvim
+SETUVAR --export ZSH:/Users/fathysameh/\x2eoh\x2dmy\x2dzsh
+SETUVAR __fish_initialized:3400
+SETUVAR fish_color_argument:normal
+SETUVAR fish_color_autosuggestion:brblack
+SETUVAR fish_color_blue:normal
+SETUVAR fish_color_cancel:\x1d
+SETUVAR fish_color_command:\x1d
+SETUVAR fish_color_comment:\x1d
+SETUVAR fish_color_cwd:normal
+SETUVAR fish_color_cwd_root:normal
+SETUVAR fish_color_cyan:normal
+SETUVAR fish_color_end:\x1d
+SETUVAR fish_color_error:\x1d
+SETUVAR fish_color_escape:\x1d
+SETUVAR fish_color_green:normal
+SETUVAR fish_color_history_current:\x1d
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_keyword:\x1d
+SETUVAR fish_color_magenta:normal
+SETUVAR fish_color_match:\x1d
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:\x1d
+SETUVAR fish_color_option:\x1d
+SETUVAR fish_color_param:\x1d
+SETUVAR fish_color_quote:\x1d
+SETUVAR fish_color_red:normal
+SETUVAR fish_color_redirection:\x1d
+SETUVAR fish_color_search_match:\x2dr
+SETUVAR fish_color_selection:\x2dr
+SETUVAR fish_color_status:normal
+SETUVAR fish_color_user:normal
+SETUVAR fish_color_valid_path:\x1d
+SETUVAR fish_color_white:normal
+SETUVAR fish_color_yellow:normal
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_pager_color_background:\x1d
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:brblack
+SETUVAR fish_pager_color_prefix:\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brblack
+SETUVAR fish_pager_color_secondary_background:\x1d
+SETUVAR fish_pager_color_secondary_completion:\x1d
+SETUVAR fish_pager_color_secondary_description:\x1d
+SETUVAR fish_pager_color_secondary_prefix:\x1d
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_pager_color_selected_completion:\x1d
+SETUVAR fish_pager_color_selected_description:\x1d
+SETUVAR fish_pager_color_selected_prefix:\x1d
+SETUVAR fish_user_paths:/opt/homebrew/Cellar/openjdk/23\x2e0\x2e1/libexec/openjdk\x2ejdk/Contents/Home/bin\x1e/opt/homebrew/bin
