@@ -6,3 +6,4 @@ font-family-italic = Maple Mono
 font-family-bold-italic = Maple Mono
 window-decoration = false
 mouse-hide-while-typing
+foreground = "#d5c4a1"
