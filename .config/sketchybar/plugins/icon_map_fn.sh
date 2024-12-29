@@ -1,4 +1,3 @@
-
 function icon_map() {
   case "$1" in
   "Keynote" | "Keynote 讲演")
@@ -10,7 +9,7 @@ function icon_map() {
   "VMware Fusion")
     icon_result=":vmware_fusion:"
     ;;
-  "Alacritty" | "Hyper" | "iTerm2" | "kitty" | "Terminal" | "终端" | "WezTerm")
+  "Alacritty" | "Ghostty" | "Hyper" | "iTerm2" | "kitty" | "Terminal" | "终端" | "WezTerm")
     icon_result=":terminal:"
     ;;
   "Microsoft To Do" | "Things")
@@ -400,7 +399,7 @@ function icon_map() {
   "Affinity Designer")
     icon_result=":affinity_designer:"
     ;;
-  "mpv")
+  "mpv" | "IINA")
     icon_result=":mpv:"
     ;;
   "Thunderbird")
