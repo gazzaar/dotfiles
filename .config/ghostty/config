@@ -2,8 +2,13 @@ theme = GruvboxDark
 font-size = 20
 font-family = FiraCode Nerd Font
 font-family-bold =  Maple Mono
+# bold-is-bright = true
 font-family-italic = Maple Mono
 font-family-bold-italic = Maple Mono
+font-style-bold-italic = Bold Italic
+font-style-italic = Italic
+font-style-bold = Bold
+font-variation-italic = "wght=600"
 window-decoration = false
 mouse-hide-while-typing
 foreground = "#d5c4a1"
