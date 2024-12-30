@@ -156,6 +156,10 @@ if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace T' # mnemonics T - Terminal
 
 [[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace T' # mnemonics T - Terminal
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'zathura'
 run = 'move-node-to-workspace 2'
 
