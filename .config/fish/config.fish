@@ -55,6 +55,7 @@ alias manage='ncdu /'
 alias study='python3 ~/dev/study-tracker/no_clip_study-tracker.py'
 alias studytime='node ~/studyTrackerAdd/index.js'
 alias fk='thefuck'
+alias room="cd $KLOG/resources/room/daily/"
 
 # FZF configuration
 set -gx FZF_DEFAULT_OPTS "\
