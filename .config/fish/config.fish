@@ -30,8 +30,8 @@ end
 
 # Aliases
 alias c="clear"
-alias arm="env /usr/bin/arch -arm64 /bin/fish --login"
-alias intel="env /usr/bin/arch -x86_64 /bin/fish --login"
+alias arm="env /usr/bin/arch -arm64 /opt/homebrew/bin/fish --login"
+alias intel="env /usr/bin/arch -x86_64 /usr/local/bin/fish --login"
 alias minecraft="java -jar Tlauncher.jar"
 alias commit="git commit -m"
 alias klog="cd $KLOG"
