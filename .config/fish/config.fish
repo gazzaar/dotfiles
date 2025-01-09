@@ -14,6 +14,8 @@ set -gx TERM xterm-256color
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx LANG en_US.UTF-8
 
+# Load nvm
+
 fish_git_prompt
 
 # Path modifications
@@ -111,4 +113,12 @@ set -g history_max_lines 1000
 # FZF Functions for key bindings
 function fish_user_key_bindings
     fzf_key_bindings
+end
+
+#load_nvm >/dev/stderr
+# Load NVM only when explicitly requested
+function use_nvm
+    if test -s "$NVM_DIR/nvm.sh"
+        bass source "$NVM_DIR/nvm.sh"
+    end
 end
