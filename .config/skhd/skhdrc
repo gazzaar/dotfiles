@@ -14,7 +14,7 @@
 # # open arc
 rctrl  - w: open -a Brave\ Browser
 # # open terminal 
-cmd - return: open -a ghostty
+ctrl - return: open -a ghostty
 alt - n: ~/.local/bin/journal
 # # open obsidian
 # cmd - insert: ~/.skhd-scripts/open_obsidian_and_move.sh
