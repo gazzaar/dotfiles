@@ -117,6 +117,8 @@ alt-3 = 'workspace 3'
 alt-b = 'workspace B'
 alt-t = 'workspace T'
 alt-e = 'workspace E'
+alt-d = 'workspace D'
+alt-o = 'workspace O'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -125,6 +127,8 @@ alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-e = 'move-node-to-workspace E'
+alt-shift-d = 'move-node-to-workspace D'
+alt-shift-o = 'move-node-to-workspace O'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -198,11 +202,11 @@ run = ['layout floating','move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace E'
+run = 'move-node-to-workspace D'
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.thunderbird'
-run = 'layout floating'
+run = ['layout floating', 'move-node-to-workspace E']
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
@@ -230,11 +234,11 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace E'
+run = 'move-node-to-workspace O'
 
 [[on-window-detected]]
 if.app-id  = 'com.jetbrains.intellij.ce'
-run = 'move-node-to-workspace E'
+run = 'move-node-to-workspace D'
 
 [[on-window-detected]]
 if.app-id  = 'com.apple.Preview'
