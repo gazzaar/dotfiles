@@ -173,7 +173,16 @@ run = "move-node-to-workspace B"
 
 
 [[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = "move-node-to-workspace B"
+
+[[on-window-detected]]
 if.app-id = 'com.apple.finder'
+run =  'layout floating' # The callback itself
+
+
+[[on-window-detected]]
+if.app-id = 'net.ankiweb.dtop'
 run =  'layout floating' # The callback itself
 
 [[on-window-detected]]
@@ -243,3 +252,7 @@ run = 'move-node-to-workspace D'
 [[on-window-detected]]
 if.app-id  = 'com.apple.Preview'
 run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Dictionary'
+run = 'layout floating'
