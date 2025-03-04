@@ -32,6 +32,7 @@ end
 
 # Aliases
 alias c="clear"
+alias llm="ollama run llama3.2"
 alias arm="env /usr/bin/arch -arm64 /opt/homebrew/bin/fish --login"
 alias intel="env /usr/bin/arch -x86_64 /usr/local/bin/fish --login"
 alias minecraft="java -jar Tlauncher.jar"
@@ -122,3 +123,6 @@ function use_nvm
         bass source "$NVM_DIR/nvm.sh"
     end
 end
+
+# Created by `pipx` on 2025-01-27 01:02:53
+set PATH $PATH /Users/fathysameh/.local/bin
