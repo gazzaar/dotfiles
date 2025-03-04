@@ -6,16 +6,18 @@
     "lazyvim.plugins.extras.editor.inc-rename",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.formatting.prettier",
-    "lazyvim.plugins.extras.lang.java",
+    "lazyvim.plugins.extras.lang.angular",
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.python",
     "lazyvim.plugins.extras.lang.svelte",
     "lazyvim.plugins.extras.lang.tex",
     "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.lang.vue",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
+  "install_version": 7,
   "news": {
     "NEWS.md": "10960"
   },
-  "version": 7
+  "version": 8
 }
