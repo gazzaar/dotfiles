@@ -1,5 +1,19 @@
-[plugin]
-deps = [{ use = "Ape/mediainfo", rev = "c69314e" }]
+[[plugin.deps]]
+use = "Ape/mediainfo"
+rev = "df17c4f"
+hash = "74c2b0063f30c6b4e4ede533f9ca03f2"
 
-[flavor]
-deps = [{ use = "bennyyip/gruvbox-dark", rev = "c204853" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "cb6165b"
+hash = "7918aab6a71caf31b58411f789195677"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "447fe95"
+hash = "dcaebc8bc261206f6b59e2c67464af5"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "b4cc9f2"
+hash = "f44c42bcbed3c8564100e45e2fe3649a"
