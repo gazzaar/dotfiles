@@ -1,8 +1,13 @@
 return {
   "nvim-orgmode/orgmode",
+  enabled = true,
   event = "VeryLazy",
-  ft = { "org" },
+  ft = { "org" }, -- only load for Org files
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
   config = function()
+    -- local palette = require("rose-pine.palette")
     local gruvbox = require("gruvbox")
     require("orgmode").setup({
       org_agenda_files = "~/.nb/klog/**/*",
@@ -16,6 +21,15 @@ return {
       },
       org_todo_keywords = { "TODO(t)", "|", "DONE", "CANCELED", "FAILED", "SIMIDONE", "ALLMOSTDONE" },
       org_todo_keyword_faces = {
+
+        -- rose-pine
+        -- TODO = ":foreground " .. palette.gold .. " :weight bold",
+        -- DONE = ":foreground " .. palette.foam .. " :weight bold",
+        -- CANCELED = ":foreground " .. palette.muted .. " :weight bold",
+        -- FAILED = ":foreground " .. palette.love .. " :weight bold",
+        -- SIMIDONE = ":foreground " .. palette.leaf .. " :weight bold",
+        -- ALLMOSTDONE = ":foreground " .. palette.iris .. " :weight bold",
+
         -- Gruv box theme
         TODO = ":foreground " .. gruvbox.palette.neutral_orange .. " :weight bold",
         DONE = ":foreground " .. gruvbox.palette.neutral_blue .. " :weight bold",

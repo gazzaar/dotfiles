@@ -15,7 +15,6 @@ return {
       graphql = { "prettier" },
       liquid = { "prettier" },
       lua = { "stylua" },
-      python = { "yapf" },
     },
     formatters = {
       prettier = {

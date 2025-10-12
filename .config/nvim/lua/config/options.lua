@@ -1,12 +1,14 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
-vim.opt.colorcolumn = "80"
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  -- command = "highlight ColorColumn ctermbg=0 guibg=#2F334D",
-  command = "highlight ColorColumn ctermbg=0 guibg=#3C3836",
-})
+-- vim.opt.colorcolumn = "100"
+-- maybe turn it on back
+-- vim.opt.cursorline = false
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   pattern = "*",
+--   -- command = "highlight ColorColumn ctermbg=0 guibg=#2F334D",
+--   command = "highlight ColorColumn ctermbg=0 guibg=#393552",
+-- })
 
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
 
@@ -61,6 +63,10 @@ local toggle_terminal = function()
     vim.api.nvim_win_hide(state.floating.win)
   end
 end
+
+vim.opt.wrap = true -- Visual wrapping
+vim.opt.linebreak = true -- Break at word boundaries
+vim.opt.breakindent = true -- Indent wrapped lines
 
 -- Example usage:
 -- Create a floating window with default dimensions
