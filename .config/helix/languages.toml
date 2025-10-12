@@ -1,0 +1,7 @@
+
+[[language]]
+name = "typescript"
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "efm-lsp-prettier" ]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true

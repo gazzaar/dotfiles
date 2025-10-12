@@ -1,0 +1,14 @@
+
+theme = "gruvbox"
+[editor]
+line-number = "relative"
+cursorline = true
+clipboard-provider = "pasteboard"
+[keys.insert]
+j = { k = "normal_mode" }
+# [editor.lsp]
+# display-inlay-hints = true
+[keys.normal]
+","= "command_mode"
+[editor.cursor-shape]
+insert = 'bar'
