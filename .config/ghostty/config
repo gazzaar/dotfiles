@@ -1,4 +1,5 @@
-theme = GruvboxDark
+# theme = rose-pine-moon
+theme = light:Gruvbox Light,dark:Gruvbox Dark
 font-size = 20
 font-family = FiraCode Nerd Font
 font-family-bold =  Maple Mono
@@ -11,4 +12,7 @@ font-style-bold = Bold
 font-variation-italic = "wght=600"
 window-decoration = false
 mouse-hide-while-typing
-foreground = "#d5c4a1"
+# foreground = "#e0def4" # rose-pine-moon
+# foreground = "#d5c4a1"
+background-opacity = 0.9
+background-blur = true
