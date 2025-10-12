@@ -113,22 +113,18 @@ alt-m = 'fullscreen'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
 alt-b = 'workspace B'
 alt-t = 'workspace T'
-alt-e = 'workspace E'
 alt-d = 'workspace D'
-alt-o = 'workspace O'
+alt-w = 'workspace W'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-t = 'move-node-to-workspace T'
-alt-shift-e = 'move-node-to-workspace E'
 alt-shift-d = 'move-node-to-workspace D'
-alt-shift-o = 'move-node-to-workspace O'
+alt-shift-o = 'move-node-to-workspace W'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -156,10 +152,6 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # callback
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace T' # mnemonics T - Terminal
-
-[[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace T' # mnemonics T - Terminal
 
@@ -175,6 +167,7 @@ run = "move-node-to-workspace B"
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
 run = "move-node-to-workspace B"
+
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -215,22 +208,45 @@ run = 'move-node-to-workspace D'
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.thunderbird'
-run = ['layout floating', 'move-node-to-workspace E']
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.gingerlabs.Notability'
-run = 'move-node-to-workspace E'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.PhotoBooth'
+run = 'layout floating'
+
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = 'layout floating'
+
+
+[[on-window-detected]]
+if.app-id = 'com.apidog.app'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id  = 'com.apple.Preview'
+run = ['layout floating','move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Dictionary'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'BetterZip'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]]
+if.app-id = 'app.legcord.Legcord'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -238,21 +254,5 @@ if.app-id = 'net.whatsapp.WhatsApp'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace O'
-
-[[on-window-detected]]
-if.app-id  = 'com.jetbrains.intellij.ce'
-run = 'move-node-to-workspace D'
-
-[[on-window-detected]]
-if.app-id  = 'com.apple.Preview'
-run = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Dictionary'
+if.app-id= 'com.apple.Photos'
 run = 'layout floating'
