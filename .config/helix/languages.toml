@@ -1,7 +1,69 @@
 
+# languages.toml - Complete configuration for TypeScript, TSX, JSX, JavaScript with Prettier formatting
+
+# TypeScript configuration
 [[language]]
 name = "typescript"
-formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "efm-lsp-prettier" ]
+language-servers = [ 
+  { name = "typescript-language-server", except-features = [ "format" ] }, 
+  "efm-lsp-prettier" 
+]
 indent = { tab-width = 2, unit = "  " }
 auto-format = true
+
+# TSX configuration
+[[language]]
+name = "tsx"
+language-servers = [ 
+  { name = "typescript-language-server", except-features = [ "format" ] }, 
+  "efm-lsp-prettier" 
+]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+# JSX configuration
+[[language]]
+name = "jsx"
+language-servers = [ 
+  { name = "typescript-language-server", except-features = [ "format" ] }, 
+  "efm-lsp-prettier" 
+]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+# JavaScript configuration
+[[language]]
+name = "javascript"
+language-servers = [ 
+  { name = "typescript-language-server", except-features = [ "format" ] }, 
+  "efm-lsp-prettier" 
+]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+
+# efm-langserver configuration for Prettier formatting
+[language-server.efm-lsp-prettier]
+command = "efm-langserver"
+
+[language-server.efm-lsp-prettier.config]
+documentFormatting = true
+
+# TypeScript
+[[language-server.efm-lsp-prettier.config.languages.typescript]]
+formatCommand = "prettier --stdin-filepath ${INPUT}"
+formatStdin = true
+
+# TSX (TypeScript React)
+[[language-server.efm-lsp-prettier.config.languages.typescriptreact]]
+formatCommand = "prettier --stdin-filepath ${INPUT}"
+formatStdin = true
+
+# JavaScript
+[[language-server.efm-lsp-prettier.config.languages.javascript]]
+formatCommand = "prettier --stdin-filepath ${INPUT}"
+formatStdin = true
+
+# JSX (JavaScript React)
+[[language-server.efm-lsp-prettier.config.languages.javascriptreact]]
+formatCommand = "prettier --stdin-filepath ${INPUT}"
+formatStdin = true
