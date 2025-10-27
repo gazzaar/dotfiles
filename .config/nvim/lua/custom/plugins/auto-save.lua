@@ -1,8 +1,8 @@
 return {
   {
-    "okuuva/auto-save.nvim",
-    cmd = "ASToggle", -- optional for lazy loading on command
-    event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+    'okuuva/auto-save.nvim',
+    cmd = 'ASToggle', -- optional for lazy loading on command
+    event = { 'InsertLeave', 'TextChanged' }, -- optional for lazy loading on trigger events
     opts = {
       --
       -- All of these are just the defaults
@@ -17,9 +17,9 @@ return {
       --   cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
       -- },
       trigger_events = { -- See :h events
-        immediate_save = { "BufLeave", "FocusLost" }, -- vim events that trigger an immediate save
-        defer_save = { "InsertLeave", "TextChanged" }, -- vim events that trigger a deferred save (saves after `debounce_delay`)
-        cancel_deferred_save = { "InsertEnter" }, -- vim events that cancel a pending deferred save
+        immediate_save = { 'BufLeave', 'FocusLost' }, -- vim events that trigger an immediate save
+        defer_save = { 'InsertLeave', 'TextChanged' }, -- vim events that trigger a deferred save (saves after `debounce_delay`)
+        cancel_deferred_save = { 'InsertEnter' }, -- vim events that cancel a pending deferred save
       },
       -- function that takes the buffer handle and determines whether to save the current buffer or not
       -- return true: if buffer is ok to be saved
