@@ -111,7 +111,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.conceallevel = 2
-vim.opt.concealcursor = 'nc'
+-- vim.opt.concealcursor = 'n'
 
 -- Save undo history
 vim.o.undofile = true
@@ -904,8 +904,17 @@ require('lazy').setup({
 
       sources = {
         default = { 'lsp', 'path', 'snippets', 'lazydev' },
+
+        per_filetype = {
+          org = { 'orgmode' },
+        },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          orgmode = {
+            name = 'Orgmode',
+            module = 'orgmode.org.autocompletion.blink',
+            fallbacks = { 'buffer' },
+          },
         },
       },
 
