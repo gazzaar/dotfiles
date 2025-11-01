@@ -168,18 +168,19 @@ vim.o.confirm = true
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- :Ntree
-vim.keymap.set('n', '<leader>e', function()
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
-    if bufname:match '^netrw' then
-      vim.api.nvim_win_close(win, true)
-      return
-    end
-  end
-  vim.cmd 'Vexplore'
-end, { desc = 'Toggle Netrw' })
-
+--[[
+-- NOTE: I replaced it with oil plugin :Ntree
+ vim.keymap.set('n', '<leader>e', function()
+   for _, win in ipairs(vim.api.nvim_list_wins()) do
+     local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
+     if bufname:match '^netrw' then
+       vim.api.nvim_win_close(win, true)
+       return
+     end
+   end
+   vim.cmd 'Vexplore'
+ end, { desc = 'Toggle Netrw' })
+--]]
 -- Floating terminal
 
 vim.keymap.set('t', '<esc><esc>', '<c-\\><c-n>')
