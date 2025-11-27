@@ -10,6 +10,7 @@ set -gx BAT_THEME gruvbox-dark
 set -gx NVM_DIR "$HOME/.nvm"
 set -gx JAVA_HOME "/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
 set -gx TERMINAL ghostty
+#set -gx TERMINAL wezterm
 set -gx TERM xterm-256color
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx LANG en_US.UTF-8
@@ -53,14 +54,30 @@ alias ls="eza -x --color=always --git --no-filesize --no-time --no-user --no-per
 alias ll="eza -l"
 alias e="exit"
 alias lg="lazygit"
-alias logs="vim $KLOG/area/log.org"
+alias logs="nvim $KLOG/area/log.org"
 alias manage='ncdu /'
-alias study='python3 ~/dev/study-tracker/no_clip_study-tracker.py'
-alias studytime='node ~/studyTrackerAdd/index.js'
+########## Python version
+#alias study='python3 ~/dev/study-tracker/no_clip_study-tracker.py'
+#alias studytime='node ~/studyTrackerAdd/index.js'
+########## NodeJS version
+alias focus='node ~/dev/study-app/index.js study'
+alias focustime='node ~/dev/study-app/index.js studytime'
 alias fk='thefuck'
 alias room="cd $KLOG/resources/room/daily/"
+alias psqlstart="brew services start postgresql@14"
+alias psqlstop="brew services stop postgresql@14"
+alias mysqlstart="brew services start mysql"
+alias mysqlstop="brew services stop mysql"
+alias mysql="mysql -u root"
+alias push="git push"
+alias clone="git clone"
+alias links='nvim ~/.nb/klog/resources/links.org'
+alias y='yazi'
+alias vp='vim package.json'
+alias config="nvim $HOME/.config/fish/config.fish"
 
 # FZF configuration
+############# gruvbox-dark
 set -gx FZF_DEFAULT_OPTS "\
 --color=fg:#ebdbb2,bg:#1d2021,fg+:#fbf1c7,bg+:#3c3836 \
 --color=hl:#83a598,hl+:#458588,info:#fabd2f,marker:#98971a \
@@ -78,7 +95,6 @@ set -gx FZF_DEFAULT_OPTS "\
 --border='rounded' \
 --margin=1,2 \
 --padding=1"
-
 # FZF Fish configuration
 set -g FZF_PREVIEW_FILE_CMD "head -n 10"
 set -g FZF_PREVIEW_DIR_CMD ls
@@ -97,15 +113,15 @@ fish_vi_key_bindings
 bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 
 # Custom function for yazi file manager
-function y
-    set tmp (mktemp -t "yazi-cwd.XXXXXX")
-    yazi $argv --cwd-file="$tmp"
-    set cwd (cat -- "$tmp")
-    if test -n "$cwd" -a "$cwd" != "$PWD"
-        cd -- "$cwd"
-    end
-    rm -f -- "$tmp"
-end
+#function y
+#    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+#    yazi $argv --cwd-file="$tmp"
+#    set cwd (cat -- "$tmp")
+#    if test -n "$cwd" -a "$cwd" != "$PWD"
+#        cd -- "$cwd"
+#    end
+#    rm -f -- "$tmp"
+#end
 
 # History configuration
 set -g fish_history_file $HOME/.local/share/fish/fish_history
@@ -126,3 +142,34 @@ end
 
 # Created by `pipx` on 2025-01-27 01:02:53
 set PATH $PATH /Users/fathysameh/.local/bin
+#export DATABASE_PASSWORD="fat244hy"
+
+# Added by Windsurf
+fish_add_path /Users/fathysameh/.codeium/windsurf/bin
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# ASDF configuration code
+if test -z $ASDF_DATA_DIR
+    set _asdf_shims "$HOME/.asdf/shims"
+else
+    set _asdf_shims "$ASDF_DATA_DIR/shims"
+end
+
+# Do not use fish_add_path (added in Fish 3.2) because it
+# potentially changes the order of items in PATH
+if not contains $_asdf_shims $PATH
+    set -gx --prepend PATH $_asdf_shims
+end
+set --erase _asdf_shims
+
+# pnpm
+set -gx PNPM_HOME /Users/fathysameh/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

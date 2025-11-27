@@ -56,37 +56,43 @@ function fish_prompt
         end
     end
 
-    set -l cyan (set_color -o cyan)
-    set -l yellow (set_color -o yellow)
-    set -l red (set_color -o red)
-    set -l green (set_color -o green)
-    set -l blue (set_color -o blue)
-    set -l normal (set_color normal)
+    # Dim colors for less highlight
+    set -l dim_gray (set_color brblack)       # for repo type label "git:" dimmed
+    set -l dim_cyan (set_color -o blue)       # for slightly dimmed folder name
+    set -l branch_highlight (set_color -d green) # bright green for branch name
+    set -l yellow (set_color yellow)           # yellow for dirty marker
+    set -l red (set_color red)                  # red for error arrow
+    set -l green (set_color green)              # green for success arrow
+    set -l normal (set_color normal)            # reset color
 
-    set -l arrow_color "$green"
+    # Determine arrow color by last command status
+    set -l arrow_color $green
     if test $__last_command_exit_status != 0
-        set arrow_color "$red"
+        set arrow_color $red
     end
 
-    set -l arrow "$arrow_color➜"
+    set -l arrow "$arrow_color❯"
     if fish_is_root_user
         set arrow "$arrow_color# "
     end
 
-    set -l cwd $cyan(basename (prompt_pwd))
+    # Dimmed current working directory basename
+    set -l cwd $dim_cyan (basename (prompt_pwd))
 
+    # Git repo info with dimmed 'git:' label and bright branch name
     set -l repo_info
     if set -l repo_type (_repo_type)
-        set -l repo_branch $red(_repo_branch_name $repo_type)
-        set repo_info "$blue $repo_type:($repo_branch$blue)"
+        set -l repo_label "$dim_gray$repo_type: "
+        set -l repo_branch "$branch_highlight"(_repo_branch_name $repo_type)
+        set repo_info "$repo_label$repo_branch"
 
         if _is_repo_dirty $repo_type
-            set -l dirty "$yellow ✗"
-            set repo_info "$repo_info$dirty"
+            set repo_info "$repo_info $yellow✗"
         end
     end
 
-    echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+    # Output full prompt
+  echo -n -s $cwd " " $repo_info " " $arrow $normal " "
 end
 
 function fish_mode_prompt
