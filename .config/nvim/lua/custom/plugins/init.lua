@@ -13,7 +13,7 @@ return {
       'nvim-treesitter/nvim-treesitter',
     },
     config = function()
-      local gruvbox = require 'gruvbox'
+      -- local gruvbox = require 'gruvbox'
       require('orgmode').setup {
         org_agenda_files = '~/.nb/klog/**/*',
         org_default_notes_file = '~/.nb/klog/area/log.org',
@@ -28,12 +28,12 @@ return {
         org_todo_keyword_faces = {
 
           -- Gruv box theme
-          TODO = ':foreground ' .. gruvbox.palette.neutral_orange .. ' :weight bold',
-          DONE = ':foreground ' .. gruvbox.palette.neutral_blue .. ' :weight bold',
-          CANCELED = ':foreground ' .. gruvbox.palette.neutral_purple .. ' :weight bold',
-          FAILED = ':foreground ' .. gruvbox.palette.neutral_red .. ' :weight bold',
-          SIMIDONE = ':foreground ' .. gruvbox.palette.neutral_green .. ' :weight bold',
-          ALLMOSTDONE = ':foreground ' .. gruvbox.palette.neutral_yellow .. ' :weight bold',
+          -- TODO = ':foreground ' .. gruvbox.palette.neutral_orange .. ' :weight bold',
+          -- DONE = ':foreground ' .. gruvbox.palette.neutral_blue .. ' :weight bold',
+          -- CANCELED = ':foreground ' .. gruvbox.palette.neutral_purple .. ' :weight bold',
+          -- FAILED = ':foreground ' .. gruvbox.palette.neutral_red .. ' :weight bold',
+          -- SIMIDONE = ':foreground ' .. gruvbox.palette.neutral_green .. ' :weight bold',
+          -- ALLMOSTDONE = ':foreground ' .. gruvbox.palette.neutral_yellow .. ' :weight bold',
         },
         org_startup_folded = 'overview',
         org_folding_level = 0,
@@ -72,10 +72,11 @@ return {
   {
     'chipsenkbeil/org-roam.nvim',
     enabled = true,
-    tag = '0.1.0',
+    tag = '0.2.0',
     ft = { 'org' }, -- only load for Org files
     dependencies = {
       'nvim-orgmode/orgmode',
+      tag = '0.7.0',
     },
     config = function()
       require('org-roam').setup {

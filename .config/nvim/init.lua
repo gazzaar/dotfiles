@@ -85,7 +85,7 @@ vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
 vim.o.relativenumber = true
-
+vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
@@ -102,6 +102,7 @@ end)
 
 -- Enable break indent
 vim.o.breakindent = true
+vim.opt.termguicolors = true
 
 -- TAB-Config
 vim.opt.tabstop = 2
@@ -286,6 +287,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
+  end,
+})
+
+-- NOTE: Disable semantic highlight
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    for _, group in ipairs(vim.fn.getcompletion('@lsp', 'highlight')) do
+      vim.api.nvim_set_hl(0, group, {})
+    end
   end,
 })
 
@@ -490,11 +500,22 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
+        defaults = {
+          --   mappings = {
+          --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          --   },
+          mappings = {
+            i = {
+              -- Insert mode: press Ctrl+d to delete buffer
+              ['<C-d>'] = require('telescope.actions').delete_buffer,
+            },
+            n = {
+              -- Normal mode: press Ctrl+d or dd to delete buffer
+              ['<C-d>'] = require('telescope.actions').delete_buffer,
+              ['dd'] = require('telescope.actions').delete_buffer,
+            },
+          },
+        },
         -- pickers = {}
         extensions = {
           ['ui-select'] = {
@@ -1022,19 +1043,41 @@ require('lazy').setup({
     },
   },
 
-  { -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'ellisonleao/gruvbox.nvim',
+  -- { -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  --   'ellisonleao/gruvbox.nvim',
+  --
+  --   config = function()
+  --     require('gruvbox').setup {
+  --       transparent_mode = false,
+  --     }
+  --
+  --     -- setup must be called before loading
+  --     vim.cmd.colorscheme 'gruvbox'
+  --   end,
+  -- },
 
+  {
+    'p00f/alabaster.nvim',
+    url = 'https://git.sr.ht/~p00f/alabaster.nvim',
     config = function()
-      require('gruvbox').setup {
-        transparent_mode = false,
-      }
-
-      -- setup must be called before loading
-      vim.cmd.colorscheme 'gruvbox'
+      vim.g.alabaster_dim_comments = true -- or false
+      vim.g.alabaster_floatborder = false -- or false
+      vim.cmd.colorscheme 'alabaster'
     end,
   },
 
+  -- { -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  --   'rebelot/kanagawa.nvim',
+  --
+  --   config = function()
+  --     require('kanagawa').setup {
+  --       transparent_mode = false,
+  --     }
+  --
+  --     -- setup must be called before loading
+  --     vim.cmd.colorscheme 'kanagawa-dragon'
+  --   end,
+  -- },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -1095,10 +1138,21 @@ require('lazy').setup({
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup {
+        opts = {
+          enable_close = true, -- Auto close tags
+          enable_rename = true, -- Auto rename pairs of tags
+          enable_close_on_slash = false, -- Auto close on trailing </
+        },
+      }
+    end,
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
@@ -1113,7 +1167,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
