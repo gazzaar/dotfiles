@@ -6,4 +6,10 @@
 .config/xbuild/
 .config/gtk-2.0/
 .config/asciinema/
+.config/better-auth/
+.config/calcure/
+.config/gh/
+.config/github-copilot/
+.config/xata/
+.config/configstore/
 
