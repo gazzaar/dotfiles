@@ -1,5 +1,7 @@
 # theme = rose-pine-moon
-theme = light:Gruvbox Light,dark:Gruvbox Dark
+# theme = light:Gruvbox Light,dark:Gruvbox Dark
+# theme = Kanagawa Dragon
+theme = dark:"/Users/fathysameh/.config/ghostty/themes/alabaster-dark.conf",light:"/Users/fathysameh/.config/ghostty/themes/alabaster-light.conf"
 font-size = 20
 font-family = FiraCode Nerd Font
 font-family-bold =  Maple Mono
@@ -12,7 +14,5 @@ font-style-bold = Bold
 font-variation-italic = "wght=600"
 window-decoration = false
 mouse-hide-while-typing
-# foreground = "#e0def4" # rose-pine-moon
-# foreground = "#d5c4a1"
-background-opacity = 0.9
-background-blur = true
+#background-opacity = 0.9
+#background-blur = true
