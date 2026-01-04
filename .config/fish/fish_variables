@@ -47,8 +47,8 @@ SETUVAR fish_color_param:\x1d
 SETUVAR fish_color_quote:\x1d
 SETUVAR fish_color_red:normal
 SETUVAR fish_color_redirection:\x1d
-SETUVAR fish_color_search_match:\x2dr
-SETUVAR fish_color_selection:\x2dr
+SETUVAR fish_color_search_match:\x2d\x2dreverse
+SETUVAR fish_color_selection:\x2d\x2dreverse
 SETUVAR fish_color_status:normal
 SETUVAR fish_color_user:normal
 SETUVAR fish_color_valid_path:\x1d
@@ -65,8 +65,8 @@ SETUVAR fish_pager_color_secondary_background:\x1d
 SETUVAR fish_pager_color_secondary_completion:\x1d
 SETUVAR fish_pager_color_secondary_description:\x1d
 SETUVAR fish_pager_color_secondary_prefix:\x1d
-SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR fish_user_paths:/Users/fathysameh/\x2ecodeium/windsurf/bin\x1e/opt/homebrew/Cellar/openjdk/23\x2e0\x2e1/libexec/openjdk\x2ejdk/Contents/Home/bin\x1e/opt/homebrew/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS
+SETUVAR fish_user_paths:/opt/homebrew/opt/openjdk\x4021/bin\x1e/Users/fathysameh/\x2ecodeium/windsurf/bin\x1e/opt/homebrew/Cellar/openjdk/23\x2e0\x2e1/libexec/openjdk\x2ejdk/Contents/Home/bin\x1e/opt/homebrew/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS

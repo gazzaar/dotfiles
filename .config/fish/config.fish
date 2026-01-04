@@ -6,7 +6,7 @@ set -gx BROWSER "Brave Browser"
 set -gx VISUAL nvim
 set -gx KLOG "$HOME/.nb/klog/"
 set -gx NB_EDITOR nvim
-set -gx BAT_THEME gruvbox-dark
+set -gx BAT_THEME gruvbox-dark 
 set -gx NVM_DIR "$HOME/.nvm"
 set -gx JAVA_HOME "/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
 set -gx TERMINAL ghostty
@@ -50,8 +50,8 @@ alias org="vim $KLOG/area/ideas.org"
 alias gs="git status"
 alias dot="cd $DOTFILES"
 alias cd="z"
-alias ls="eza -x --color=always --git --no-filesize --no-time --no-user --no-permissions --long"
-alias ll="eza -l"
+alias ls="eza -x --color=never --git --no-quotes --no-filesize --no-time --no-user --no-permissions --long"
+alias ll="eza -l --color=never --no-quotes --total-size"
 alias e="exit"
 alias lg="lazygit"
 alias logs="nvim $KLOG/area/log.org"
@@ -75,26 +75,50 @@ alias links='nvim ~/.nb/klog/resources/links.org'
 alias y='yazi'
 alias vp='vim package.json'
 alias config="nvim $HOME/.config/fish/config.fish"
+alias smath="open ~/Learning/Math/books/precalc-study.pdf"
 
 # FZF configuration
-############# gruvbox-dark
-set -gx FZF_DEFAULT_OPTS "\
---color=fg:#ebdbb2,bg:#1d2021,fg+:#fbf1c7,bg+:#3c3836 \
---color=hl:#83a598,hl+:#458588,info:#fabd2f,marker:#98971a \
---color=prompt:#b8bb26,spinner:#d3869b,pointer:#fb4934,header:#8ec07c \
---color=border:#d65d0e,preview-fg:#ebdbb2,preview-bg:#282828 \
---color=preview-border:#689d6a,preview-scrollbar:#a89984 \
---color=gutter:#1d2021,query:#d9d9d9,label:#665c54 \
---preview-window='border-rounded' \
---prompt='❯ ' \
---marker='▶' \
---pointer='◆' \
---separator='─' \
---scrollbar='│' \
---layout='reverse-list' \
---border='rounded' \
---margin=1,2 \
---padding=1"
+########## Nord theme ##################
+set -gx FZF_DEFAULT_OPTS "
+--color=fg:#e5e9f0,bg:#2E3440,hl:#81a1c1
+--color=fg+:#e5e9f0,bg+:#2E3440,hl+:#81a1c1
+--color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+--color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b "
+
+############# gruvbox-dark ###################
+# set -gx FZF_DEFAULT_OPTS "\
+# --color=fg:#ebdbb2,bg:#1d2021,fg+:#fbf1c7,bg+:#3c3836 \
+# --color=hl:#83a598,hl+:#458588,info:#fabd2f,marker:#98971a \
+# --color=prompt:#b8bb26,spinner:#d3869b,pointer:#fb4934,header:#8ec07c \
+# --color=border:#d65d0e,preview-fg:#ebdbb2,preview-bg:#282828 \
+# --color=preview-border:#689d6a,preview-scrollbar:#a89984 \
+# --color=gutter:#1d2021,query:#d9d9d9,label:#665c54 \
+# --preview-window='border-rounded' \
+# --prompt='❯ ' \
+# --marker='▶' \
+# --pointer='◆' \
+# --separator='─' \
+# --scrollbar='│' \
+# --layout='reverse-list' \
+# --border='rounded' \
+# --margin=1,2 \
+# --padding=1"
+
+########### Alabaster ##############33
+# set -gx FZF_DEFAULT_OPTS "
+# --color=fg:#cecece,fg+:#cecece,bg:#0E1415,bg+:#293334
+# --color=hl:#5f87af,hl+:#5fd7ff,info:#afaf87,marker:#87ff00 
+# --color=prompt:#d7005f,spinner:#af5fff,pointer:#af5fff,header:#87afaf 
+# --color=border:#262626,label:#aeaeae,query:#d9d9d9 
+# --border='rounded' 
+# --border-label='' 
+# --preview-window='border-rounded' 
+# --prompt='> ' 
+# --marker='>' 
+# --pointer='◆' 
+# --separator='─' 
+# --scrollbar='│'"
+
 # FZF Fish configuration
 set -g FZF_PREVIEW_FILE_CMD "head -n 10"
 set -g FZF_PREVIEW_DIR_CMD ls
@@ -122,6 +146,7 @@ bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind
 #    end
 #    rm -f -- "$tmp"
 #end
+set -gx DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
 # History configuration
 set -g fish_history_file $HOME/.local/share/fish/fish_history
@@ -173,3 +198,4 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+set -gx JAVA_HOME (/usr/libexec/java_home -v 21)
