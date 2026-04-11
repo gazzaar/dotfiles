@@ -1,23 +1,15 @@
-# theme = Rose Pine Moon
- # theme = light:Gruvbox Light,dark:Gruvbox Dark
-theme = dark:Nord,light: Nord Light 
-# theme = Kanagawa Dragon
-# theme = dark:"/Users/fathysameh/.config/ghostty/themes/alabaster-dark.conf",light:"/Users/fathysameh/.config/ghostty/themes/alabaster-light.conf"
+theme = light:Gruvbox Material Light,dark:Gruvbox Material Dark
 font-size = 19
 # font-family = FiraCode Nerd Font
+# font-family = JetBrains Mono
 font-family = Roboto Mono 
 font-family-bold =  Roboto Mono 
-# bold-is-bright = true
 font-family-italic = Roboto Mono 
 font-family-bold-italic = Roboto Mono 
 font-style-bold-italic = Bold Italic
 font-style = Regular
 font-style-italic = Italic
-font-style-bold = Bold 
+font-style-bold = Bold
 font-variation-italic = "wght=600"
 window-decoration = false
 mouse-hide-while-typing
-#background-opacity = 0.8
-#background-blur = true
-# keybind = ctrl+shift+h=goto_split:left
-# keybind = ctrl+shift+l=goto_split:right

@@ -12,4 +12,6 @@
 .config/github-copilot/
 .config/xata/
 .config/configstore/
-
+.config/firebase/
+.config/mole/
+.config/television/

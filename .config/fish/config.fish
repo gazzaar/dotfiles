@@ -1,15 +1,15 @@
 # Environment Variables
 set -gx ZSH "$HOME/.oh-my-zsh"
 set -gx DOTFILES "$HOME/dotfiles/"
-set -gx EDITOR nvim
-set -gx BROWSER "Brave Browser"
+set -gx EDITOR vim
+set -gx BROWSER "zen"
 set -gx VISUAL nvim
 set -gx KLOG "$HOME/.nb/klog/"
 set -gx NB_EDITOR nvim
-set -gx BAT_THEME gruvbox-dark 
+set -gx BAT_THEME gruvbox-dark
 set -gx NVM_DIR "$HOME/.nvm"
 set -gx JAVA_HOME "/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
-set -gx TERMINAL ghostty
+set -gx TERMINAL kitty
 #set -gx TERMINAL wezterm
 set -gx TERM xterm-256color
 set -gx HOMEBREW_NO_AUTO_UPDATE true
@@ -33,7 +33,6 @@ end
 
 # Aliases
 alias c="clear"
-alias llm="ollama run llama3.2"
 alias arm="env /usr/bin/arch -arm64 /opt/homebrew/bin/fish --login"
 alias intel="env /usr/bin/arch -x86_64 /usr/local/bin/fish --login"
 alias minecraft="java -jar Tlauncher.jar"
@@ -76,34 +75,35 @@ alias y='yazi'
 alias vp='vim package.json'
 alias config="nvim $HOME/.config/fish/config.fish"
 alias smath="open ~/Learning/Math/books/precalc-study.pdf"
+alias update-nvim='asdf uninstall neovim stable && asdf install neovim stable'
 
 # FZF configuration
 ########## Nord theme ##################
-set -gx FZF_DEFAULT_OPTS "
---color=fg:#e5e9f0,bg:#2E3440,hl:#81a1c1
---color=fg+:#e5e9f0,bg+:#2E3440,hl+:#81a1c1
---color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
---color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b "
+# set -gx FZF_DEFAULT_OPTS "
+# --color=fg:#e5e9f0,bg:#2E3440,hl:#81a1c1
+# --color=fg+:#e5e9f0,bg+:#2E3440,hl+:#81a1c1
+# --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+# --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b "
 
 ############# gruvbox-dark ###################
-# set -gx FZF_DEFAULT_OPTS "\
-# --color=fg:#ebdbb2,bg:#1d2021,fg+:#fbf1c7,bg+:#3c3836 \
-# --color=hl:#83a598,hl+:#458588,info:#fabd2f,marker:#98971a \
-# --color=prompt:#b8bb26,spinner:#d3869b,pointer:#fb4934,header:#8ec07c \
-# --color=border:#d65d0e,preview-fg:#ebdbb2,preview-bg:#282828 \
-# --color=preview-border:#689d6a,preview-scrollbar:#a89984 \
-# --color=gutter:#1d2021,query:#d9d9d9,label:#665c54 \
-# --preview-window='border-rounded' \
-# --prompt='❯ ' \
-# --marker='▶' \
-# --pointer='◆' \
-# --separator='─' \
-# --scrollbar='│' \
-# --layout='reverse-list' \
-# --border='rounded' \
-# --margin=1,2 \
-# --padding=1"
-
+set -gx FZF_DEFAULT_OPTS "\
+--color=fg:#ebdbb2,bg:#1d2021,fg+:#fbf1c7,bg+:#3c3836 \
+--color=hl:#83a598,hl+:#458588,info:#fabd2f,marker:#98971a \
+--color=prompt:#b8bb26,spinner:#d3869b,pointer:#fb4934,header:#8ec07c \
+--color=border:#d65d0e,preview-fg:#ebdbb2,preview-bg:#282828 \
+--color=preview-border:#689d6a,preview-scrollbar:#a89984 \
+--color=gutter:#1d2021,query:#d9d9d9,label:#665c54 \
+--preview-window='border-rounded' \
+--prompt='❯ ' \
+--marker='▶' \
+--pointer='◆' \
+--separator='─' \
+--scrollbar='│' \
+--layout='reverse-list' \
+--border='rounded' \
+--margin=1,2 \
+--padding=1"
+#
 ########### Alabaster ##############33
 # set -gx FZF_DEFAULT_OPTS "
 # --color=fg:#cecece,fg+:#cecece,bg:#0E1415,bg+:#293334
@@ -137,7 +137,7 @@ fish_vi_key_bindings
 bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 
 # Custom function for yazi file manager
-#function y
+# function y
 #    set tmp (mktemp -t "yazi-cwd.XXXXXX")
 #    yazi $argv --cwd-file="$tmp"
 #    set cwd (cat -- "$tmp")
@@ -145,7 +145,7 @@ bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind
 #        cd -- "$cwd"
 #    end
 #    rm -f -- "$tmp"
-#end
+# end
 set -gx DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
 # History configuration
@@ -167,7 +167,7 @@ end
 
 # Created by `pipx` on 2025-01-27 01:02:53
 set PATH $PATH /Users/fathysameh/.local/bin
-#export DATABASE_PASSWORD="fat244hy"
+export DATABASE_PASSWORD="fat244hy"
 
 # Added by Windsurf
 fish_add_path /Users/fathysameh/.codeium/windsurf/bin

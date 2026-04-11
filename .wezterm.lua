@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 local function choose_scheme()
 	local appearance = wezterm.gui.get_appearance()
 	if appearance:find("Dark") then
-		return "Gruvbox Dark (Gogh)"
+		return "Gruvbox Material (Gogh)"
 	else
 		return "Gruvbox Light"
 	end
@@ -15,13 +15,14 @@ end
 config.force_reverse_video_cursor = true
 config.color_scheme = choose_scheme()
 
-config.colors = {
-	-- foreground = "#d5c4a1",
-}
+-- config.colors = {
+-- 	foreground = "#cecece",
+-- }
 
 config.max_fps = 120
-config.font_size = 20
-config.font = wezterm.font({ family = "FiraCode Nerd Font" })
+config.font_size = 19
+-- config.font = wezterm.font({ family = "FiraCode Nerd Font" })
+config.font = wezterm.font({ family = "Roboto Mono" })
 config.bold_brightens_ansi_colors = true
 
 config.font_rules = {
@@ -54,7 +55,7 @@ config.window_padding = {
 
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt"
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 9
+-- config.window_background_opacity = 0.8
+-- config.macos_window_background_blur = 9
 
 return config

@@ -7,3 +7,29 @@ desc = "Cancel input"
 on   = "l"
 run  = "plugin --sync smart-enter"
 desc = "Enter the child directory, or open the file"
+
+[[mgr.prepend_keymap]]
+on   = "T"
+run  = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+[[mgr.prepend_keymap]]
+on   = "!"
+for  = "unix"
+run  = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "k" ]
+run = "cd $HOME/.nb/klog/"
+desc = "Go to Klog"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "l" ]
+run = "cd $HOME/courses/"
+desc = "Go to courses"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "s" ]
+run = "cd $HOME/screenshots/"
+desc = "Go to screenshots"

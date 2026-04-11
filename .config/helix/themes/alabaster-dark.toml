@@ -1,0 +1,56 @@
+# Helix Alabaster Dark Theme - Matching Neovim
+# Save as: ~/.config/helix/themes/alabaster-dark.toml
+
+# Highlighted elements
+'function' = { fg = 'light_blue' }
+'function.method' = { fg = 'light_blue' }
+'function.builtin' = { fg = 'light_blue' }
+'string' = { fg = 'green' }
+'constant.numeric' = { fg = 'magenta' }
+
+# Comments - gray and dimmed
+'comment' = { fg = 'gray', modifiers = ['dim'] }
+'comment.block' = { fg = 'gray', modifiers = ['dim'] }
+'comment.line' = { fg = 'gray', modifiers = ['dim'] }
+
+# Everything else uses the grayish-white color
+'attribute' = { fg = 'fg' }
+'constant' = { fg = 'fg' }
+'constructor' = { fg = 'fg' }
+'keyword' = { fg = 'fg' }
+'label' = { fg = 'fg' }
+'namespace' = { fg = 'fg' }
+'operator' = { fg = 'fg' }
+'punctuation.bracket' = { fg = 'fg' }
+'punctuation.delimiter' = { fg = 'fg' }
+'tag' = { fg = 'fg' }
+'type' = { fg = 'fg' }
+'variable' = { fg = 'fg' }
+'variable.parameter' = { fg = 'fg' }
+
+# UI Elements
+'ui.background' = { bg = 'bg' }
+'ui.text' = { fg = 'fg' }
+'ui.window' = { fg = 'base2' }
+'ui.statusline' = { fg = 'fg', bg = 'base2' }
+'ui.cursor' = { fg = 'bg', bg = 'yellow' }
+'ui.cursorline' = { bg = 'bg_alt' }
+'ui.linenr' = { fg = 'gray' }
+'ui.linenr.selected' = { fg = 'yellow' }
+'ui.selection' = { bg = 'base2' }
+'ui.menu' = { fg = 'fg', bg = 'base2' }
+'ui.menu.selected' = { bg = 'base3' }
+
+[palette]
+green = '#6abf40'
+magenta = '#9B3596'
+light_blue = '#71aed7'
+yellow = '#cd974b'
+gray = '#5b6d78'
+
+# Background colors
+bg = '#0e1415'
+bg_alt = '#1a2122'
+fg = '#cecece'  # This grayish-white matches your Neovim theme
+base2 = '#293334'
+base3 = '#333333'

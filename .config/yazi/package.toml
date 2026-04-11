@@ -13,6 +13,11 @@ use = "boydaihungst/mediainfo"
 rev = "2093ab7"
 hash = "16a10359fc2a3cd8cc8bcfbe00f744d3"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "56971d0"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
+
 [[flavor.deps]]
 use = "Mintass/rose-pine"
 rev = "8343340"
@@ -22,3 +27,8 @@ hash = "e2336631865c0f90276dcbc553d532fc"
 use = "bennyyip/gruvbox-dark"
 rev = "e5e1aef"
 hash = "eb88137cf13a796225254344bf6def2c"
+
+[[flavor.deps]]
+use = "AdithyanA2005/nord"
+rev = "3a791e9"
+hash = "fa7142cda74a50b271ea212356b40b57"

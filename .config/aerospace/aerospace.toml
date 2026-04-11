@@ -63,7 +63,7 @@ inner.horizontal = 5
 inner.vertical =   0
 outer.left =       0
 outer.bottom=     22
-outer.top=     0
+outer.top=        0
 outer.right =     0
 
 # 'main' binding mode declaration
@@ -113,6 +113,9 @@ alt-m = 'fullscreen'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-a = 'workspace A'
 alt-b = 'workspace B'
 alt-t = 'workspace T'
 alt-d = 'workspace D'
@@ -121,10 +124,13 @@ alt-w = 'workspace W'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-a = 'move-node-to-workspace A'
 alt-shift-b = 'move-node-to-workspace B'
 alt-shift-t = 'move-node-to-workspace T'
 alt-shift-d = 'move-node-to-workspace D'
-alt-shift-o = 'move-node-to-workspace W'
+alt-shift-w = 'move-node-to-workspace W'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -152,8 +158,8 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # callback
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace T' # mnemonics T - Terminal
+if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace T' 
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zathura'
@@ -171,20 +177,20 @@ run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run =  'layout floating' # The callback itself
+run =  'layout floating' 
 
 
 [[on-window-detected]]
 if.app-id = 'net.ankiweb.dtop'
-run =  'layout floating' # The callback itself
+run =  'layout floating' 
 
 [[on-window-detected]]
 if.app-id = 'com.apple.clock'
-run = 'layout floating'  # The callback itself
+run = 'layout floating'  
 
 [[on-window-detected]]
 if.app-id = 'com.apple.AppStore'
-run = 'layout floating'  # The callback itself
+run = 'layout floating'   
 
 [[on-window-detected]]
 if.app-id = "net.sourceforge.skim-app.skim"
@@ -256,3 +262,8 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id= 'com.apple.Photos'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ['layout floating','move-node-to-workspace 1']
+

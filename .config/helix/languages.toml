@@ -1,6 +1,20 @@
 
 # languages.toml - Complete configuration for TypeScript, TSX, JSX, JavaScript with Prettier formatting
 
+# Markdown
+[[language]]
+name = "markdown"
+language-servers = [{name = "marksman"}]
+
+# Python configuration
+[[language]]
+name = "python"
+language-servers = [
+  {name = "pylsp"}
+]
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+ 
 # TypeScript configuration
 [[language]]
 name = "typescript"

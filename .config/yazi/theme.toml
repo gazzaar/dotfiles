@@ -1,3 +1,4 @@
 [flavor]
-dark = "gruvbox-dark"
+# dark = "gruvbox-dark"
+# dark = "nord"
 #dark = "rose-pine"

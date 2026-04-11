@@ -21,9 +21,14 @@ zathura = [
     { run = 'zathura "$@" &', desc = "Open with Zathura", for = "unix" },
 ]
 
+[preview]
+max_width  = 1000
+max_height = 1000
+
 [open]
 rules = [
-    { name = "*.pdf", use = ["zathura","reveal"] },
+    { name = "*.pdf", use = ["open","reveal"] },
+    { name = "*.epub", use = ["open","reveal"] },
     { name = "*.html", use =  "edit"  },
     { name = "*/", use = [  "open", "edit", "reveal" ] },
     # Text
