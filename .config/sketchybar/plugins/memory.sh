@@ -1,32 +1,35 @@
 #!/bin/bash
-NAME="memory"
 
 # Get memory info
 MEM_INFO=$(vm_stat)
 
-# Parse memory values
-FREE_MEM=$(echo "$MEM_INFO" | awk '/Pages free/ {print $3}' | tr -d '.')
-INACTIVE_MEM=$(echo "$MEM_INFO" | awk '/Pages inactive/ {print $3}' | tr -d '.')
-SPECULATIVE_MEM=$(echo "$MEM_INFO" | awk '/Pages speculative/ {print $3}' | tr -d '.')
-PURGEABLE_MEM=$(echo "$MEM_INFO" | awk '/Pages purgeable/ {print $3}' | tr -d '.')
+# Parse page size from first line
+PAGE_SIZE=$(echo "$MEM_INFO" | head -1 | grep -o '[0-9]\+' | tail -1)
+PAGE_SIZE=${PAGE_SIZE:-16384}
 
-# Get total memory and DYNAMIC page size
-TOTAL_MEM=$(sysctl -n hw.memsize)
-PAGE_SIZE=$(vm_stat | head -1 | awk '{print $8}' | tr -d '.')
+# Parse memory pages (remove trailing dots)
+FREE_PAGES=$(echo "$MEM_INFO" | awk '/Pages free/ {print $3}' | sed 's/\.//')
+ACTIVE_PAGES=$(echo "$MEM_INFO" | awk '/Pages active/ {print $3}' | sed 's/\.//')
+INACTIVE_PAGES=$(echo "$MEM_INFO" | awk '/Pages inactive/ {print $3}' | sed 's/\.//')
+SPECULATIVE_PAGES=$(echo "$MEM_INFO" | awk '/Pages speculative/ {print $3}' | sed 's/\.//')
+WIRED_PAGES=$(echo "$MEM_INFO" | awk '/Pages wired down/ {print $4}' | sed 's/\.//')
+COMPRESSED_PAGES=$(echo "$MEM_INFO" | awk '/Pages occupied by compressor/ {print $5}' | sed 's/\.//')
 
-# Convert pages to bytes
-FREE_MEM=$((FREE_MEM * PAGE_SIZE))
-INACTIVE_MEM=$((INACTIVE_MEM * PAGE_SIZE))
-SPECULATIVE_MEM=$((SPECULATIVE_MEM * PAGE_SIZE))
-PURGEABLE_MEM=$((PURGEABLE_MEM * PAGE_SIZE))
+# Handle empty values
+FREE_PAGES=${FREE_PAGES:-0}
+ACTIVE_PAGES=${ACTIVE_PAGES:-0}
+INACTIVE_PAGES=${INACTIVE_PAGES:-0}
+SPECULATIVE_PAGES=${SPECULATIVE_PAGES:-0}
+WIRED_PAGES=${WIRED_PAGES:-0}
+COMPRESSED_PAGES=${COMPRESSED_PAGES:-0}
 
-# Calculate available and used memory
-AVAILABLE_MEM=$((FREE_MEM + INACTIVE_MEM + SPECULATIVE_MEM + PURGEABLE_MEM))
-USED_MEM=$((TOTAL_MEM - AVAILABLE_MEM))
+# Calculate used memory (active + wired + compressed)
+USED_PAGES=$((ACTIVE_PAGES + WIRED_PAGES + COMPRESSED_PAGES))
+TOTAL_PAGES=$((FREE_PAGES + ACTIVE_PAGES + INACTIVE_PAGES + SPECULATIVE_PAGES + WIRED_PAGES + COMPRESSED_PAGES))
 
 # Calculate percentage
-if [ "$TOTAL_MEM" -gt 0 ]; then
-  MEM_PERCENT=$(awk "BEGIN {printf \"%.0f\", ($USED_MEM * 100 / $TOTAL_MEM)}")
+if [ "$TOTAL_PAGES" -gt 0 ]; then
+  MEM_PERCENT=$(awk "BEGIN {printf \"%.0f\", ($USED_PAGES * 100 / $TOTAL_PAGES)}")
 else
   MEM_PERCENT=0
 fi
